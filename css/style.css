@@ -504,113 +504,111 @@ body.nier-mode .theme-btn:hover {
    /// RESPONSIVE
    ========================================================================== */
 
+/* ==========================================================================
+   /// RESPONSIVE DESIGN (FLUIDE & PROPORTIONNEL)
+   ========================================================================== */
+
 @media screen and (max-width: 900px) {
 
-    /* 1. RESTRUCTURATION DE LA GRILLE */
+    /* 1. GRILLE & STRUCTURE */
     .grid-system {
-        grid-template-columns: 1fr; /* On passe de 2 colonnes à 1 seule colonne */
+        grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    /* 2. AJUSTEMENTS DU HEADER */
-    header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
+    header { text-align: center; margin-bottom: 30px; }
 
     .top-bar {
-        flex-direction: column; /* On empile le statut et le bouton */
+        flex-direction: column;
         gap: 15px;
         margin-bottom: 20px;
     }
 
-    h1 {
-        font-size: 2.5rem; /* On réduit la taille du titre géant */
-        line-height: 1.2;
-        word-break: break-word; /* Évite que le texte ne sorte de l'écran */
-    }
-
-    /* Le sous-titre qui s'écrit tout seul */
-    .subtitle {
-        font-size: 1rem;
-        min-height: 1.5em; /* Évite le saut de ligne quand il est vide */
-    }
-
-    /* 3. SIDEBAR (Identité) */
+    /* 2. PORTRAIT FLUIDE (Le changement majeur) */
     aside {
         display: flex;
         flex-direction: column;
-        align-items: center; /* On centre tout le contenu de la sidebar */
+        align-items: center;
     }
 
-    /* Cadre Portrait : On le réduit un peu */
     .portrait-frame {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 20px;
+        /* Utilisation de 'vw' (Viewport Width).
+           40vw = L'image prend 40% de la largeur de l'écran.
+        */
+        width: 40vw;
+
+        /* aspect-ratio: 1/1 force le carré parfait automatiquement,
+           quelle que soit la largeur. Plus besoin de régler height.
+        */
+        height: auto;
+        aspect-ratio: 1 / 1;
+
+        /* Bornes de sécurité : */
+        min-width: 200px; /* Ne devient jamais plus petit que 200px */
+        max-width: 350px; /* Ne devient jamais plus grand que 350px */
+
+        margin: 0 auto 25px auto;
     }
 
-    /* Menu de Navigation : On le transforme en grille de boutons */
+    /* Ajustement spécifique pour NieR sur tablette/mobile */
+    /* Pour éviter que le cercle rotatif (qui dépasse de 20%) ne sorte de l'écran */
+    body.nier-mode .portrait-frame {
+        margin-top: 20px; /* Un peu d'air en haut pour le cercle */
+        margin-bottom: 40px;
+    }
+
+    /* 3. MENU & NAVIGATION */
     .nav-menu {
         width: 100%;
+        max-width: 400px; /* On évite que les boutons soient trop larges */
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 8px;
     }
 
     .nav-link {
         text-align: center;
-        padding-left: 0 !important; /* On annule le décalage gauche */
+        padding-left: 0 !important;
         border-left: none;
-        border-bottom: 1px solid #333; /* On met la bordure en bas */
+        border-bottom: 1px solid #333;
     }
 
-    /* Ajustement spécifique Cyberpunk pour le hover sur mobile */
     .nav-link:hover { padding-left: 0; }
 
-    /* Ajustement spécifique NieR sur mobile */
     body.nier-mode .nav-link {
         border-left: none;
         border-bottom: 1px solid #aaa;
     }
 
-    /* 4. CONTACT INFO */
-    /* On garde l'alignement à gauche pour la lisibilité, mais on centre le bloc */
-    .card h2 { text-align: center; }
+    /* 4. TEXTES & TITRES */
+    h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem); /* Taille dynamique fluide */
+        line-height: 1.2;
+    }
 
+    .subtitle { min-height: 1.5em; font-size: 1rem; }
+
+    /* 5. CONTACT & CONTENU */
     .contact-info {
         width: 100%;
-        max-width: 350px; /* Pour ne pas que ce soit trop large */
-        margin: 0 auto;   /* Centré */
+        max-width: 350px;
+        margin: 0 auto;
     }
 
-    /* 5. CONTENU PRINCIPAL */
-    main {
-        width: 100%;
-    }
+    main { width: 100%; }
+    .project-grid { grid-template-columns: 1fr; }
 
-    /* Ajustement des grilles de projets (Portfolio) */
-    .project-grid {
-        grid-template-columns: 1fr; /* 1 projet par ligne sur mobile */
-    }
-
-    /* 6. TIMELINE (Cursus/Expérience) */
-    .timeline-item {
-        margin-left: 10px;
-        padding-right: 0;
-    }
-
-    .job-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
+    .timeline-item { margin-left: 10px; padding-right: 0; }
+    .job-header { flex-direction: column; align-items: flex-start; gap: 5px; }
 }
 
-@media screen and (max-width: 400px) {
-    h1 { font-size: 1.8rem; }
+@media screen and (max-width: 500px) {
 
-    .portrait-frame { width: 200px; height: 200px; }
+    .portrait-frame {
+        width: 60vw;
+    }
+
+    h1 { font-size: 1.8rem; }
     .contact-info p {
         flex-wrap: wrap;
     }
