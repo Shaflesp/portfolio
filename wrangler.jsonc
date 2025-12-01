@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "compatibility_date": "2025-12-01",
-  "main": "src/index.js",
   "assets": {
     "directory": "./dist"
   }
