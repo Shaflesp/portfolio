@@ -21,11 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
        2. NAVIGATION AUTO (Active Link) - CORRIGÉ
     --------------------------------------------------- */
 
-    // Récupère le nom du fichier actuel (plus sûr pour les tests locaux)
-    let currentPage = window.location.pathname.split("/").pop();
+/* ---------------------------------------------------
+       2. NAVIGATION AUTO (Active Link) - CORRIGE POUR SERVEUR
+    --------------------------------------------------- */
 
-    // Si la chaîne est vide (ex: ouverture dossier racine), on force index.html
-    if (currentPage === "") currentPage = "index.html";
+    // 1. Récupère le nom du chemin et le nettoie
+    let urlPath = window.location.pathname.split("/").pop();
+
+    // Retire l'extension .html (si elle est présente)
+    let currentPageName = urlPath.replace('.html', '');
+
+    // Si le chemin est vide (racine, ex: https://monsite.com/), on le force à 'index'
+    if (currentPageName === "") {
+        currentPageName = "index";
+    }
 
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -33,10 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Nettoyage préventif
         link.classList.remove('active');
 
-        // Si le href du lien correspond à la page actuelle, on l'active
-        if (link.getAttribute('href') === currentPage) {
+        // 2. Récupère le nom du fichier depuis le href du lien (ex: 'cursus.html')
+        const linkHref = link.getAttribute('href');
+
+        // Retire l'extension .html du lien pour la comparaison (ex: 'cursus')
+        const linkName = linkHref.replace('.html', '');
+
+        // 3. Comparaison : 'cursus' (URL) === 'cursus' (Lien)
+        if (linkName === currentPageName) {
             link.classList.add('active');
-            console.log(`[NAV] Page active détectée : ${currentPage}`);
         }
     });
 
