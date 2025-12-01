@@ -499,3 +499,119 @@ body.nier-mode .theme-btn:hover {
     background: #333;
     color: #fff;
 }
+
+/* ==========================================================================
+   /// RESPONSIVE
+   ========================================================================== */
+
+@media screen and (max-width: 900px) {
+
+    /* 1. RESTRUCTURATION DE LA GRILLE */
+    .grid-system {
+        grid-template-columns: 1fr; /* On passe de 2 colonnes à 1 seule colonne */
+        gap: 40px;
+    }
+
+    /* 2. AJUSTEMENTS DU HEADER */
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .top-bar {
+        flex-direction: column; /* On empile le statut et le bouton */
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* On réduit la taille du titre géant */
+        line-height: 1.2;
+        word-break: break-word; /* Évite que le texte ne sorte de l'écran */
+    }
+
+    /* Le sous-titre qui s'écrit tout seul */
+    .subtitle {
+        font-size: 1rem;
+        min-height: 1.5em; /* Évite le saut de ligne quand il est vide */
+    }
+
+    /* 3. SIDEBAR (Identité) */
+    aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* On centre tout le contenu de la sidebar */
+    }
+
+    /* Cadre Portrait : On le réduit un peu */
+    .portrait-frame {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    /* Menu de Navigation : On le transforme en grille de boutons */
+    .nav-menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-link {
+        text-align: center;
+        padding-left: 0 !important; /* On annule le décalage gauche */
+        border-left: none;
+        border-bottom: 1px solid #333; /* On met la bordure en bas */
+    }
+
+    /* Ajustement spécifique Cyberpunk pour le hover sur mobile */
+    .nav-link:hover { padding-left: 0; }
+
+    /* Ajustement spécifique NieR sur mobile */
+    body.nier-mode .nav-link {
+        border-left: none;
+        border-bottom: 1px solid #aaa;
+    }
+
+    /* 4. CONTACT INFO */
+    /* On garde l'alignement à gauche pour la lisibilité, mais on centre le bloc */
+    .card h2 { text-align: center; }
+
+    .contact-info {
+        width: 100%;
+        max-width: 350px; /* Pour ne pas que ce soit trop large */
+        margin: 0 auto;   /* Centré */
+    }
+
+    /* 5. CONTENU PRINCIPAL */
+    main {
+        width: 100%;
+    }
+
+    /* Ajustement des grilles de projets (Portfolio) */
+    .project-grid {
+        grid-template-columns: 1fr; /* 1 projet par ligne sur mobile */
+    }
+
+    /* 6. TIMELINE (Cursus/Expérience) */
+    .timeline-item {
+        margin-left: 10px;
+        padding-right: 0;
+    }
+
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1 { font-size: 1.8rem; }
+
+    .portrait-frame { width: 200px; height: 200px; }
+    .contact-info p {
+        flex-wrap: wrap;
+    }
+}
