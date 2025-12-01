@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME // REMY_MARTIN</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'nier') {
+            document.body.classList.add('nier-mode');
+        }
+    </script>
+    <div class="scanlines"></div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="top-bar">
+                    <span class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+                    <button id="theme-toggle" class="theme-btn">[ OS: ARASAKA ]</button>
+                </div>
+                <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
+                <div class="subtitle typing-cursor" id="typing-text"></div>
+            </div>
+        </header>
+
+        <div class="grid-system">
+            <aside>
+                <div class="portrait-frame">
+                    <div class="portrait-overlay"></div>
+                    <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
+                    <div class="scan-bar"></div>
+                    <span class="img-caption">ID: CONFIRMED</span>
+                </div>
+
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link active">01 // ACCUEIL</a>
+                    <a href="pages/cursus.html" class="nav-link">02 // CURSUS</a>
+                    <a href="pages/experience.html" class="nav-link">03 // EXPÉRIENCE</a>
+                    <a href="pages/portfolio.html" class="nav-link">04 // RÉALISATIONS</a>
+                </nav>
+
+                <section class="card" style="margin-top: 20px;">
+                    <h2>// DATA_LINK</h2>
+                    <div class="contact-info">
+                        <p><span>[LOC]</span> Douai, FR</p>
+                        <p><span>[MAIL]</span> remy.martin0106@outlook.com</p>
+                        <p><span>[GIT]</span><a href="https://github.com/Shaflesp" target="_blank">github.com/Shaflesp</a></p>
+                        <p><span>[TEL]</span>06-14-41-54-14</p>
+                    </div>
+                </section>
+            </aside>
+            <main>
+                <section class="card main-bio">
+                    <h2>// WELCOME_MESSAGE</h2>
+                    <p class="highlight-text">> Initializing user profile...</p>
+                    <p>Bienvenue sur mon terminal. Je suis un étudiant en 2ème année de BUT Informatique passionné par le développement Back-End et les Databases.</p>
+                    <br>
+                    <p>Ce portfolio est une interface directe vers mes compétences et mon historique. Naviguez via le menu latéral pour accéder aux bases de données détaillées.</p>
+                    <br>
+                    <p>Je recherche actuellement un stage de 8 à 12 semaines à partir du 6 Avril dans ces domaines.</p>
+                </section>
+
+                <div class="grid-system" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <section class="card red-glow">
+                        <h3>DERNIÈRE MISSION</h3>
+                        <p>BUT Informatique</p>
+                        <small>Status: Executing...</small>
+                    </section>
+                    <section class="card">
+                        <h3>PROJET EN COURS</h3>
+                        <p>webPlayer</p>
+                        <small>Status: Compiling...</small>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <footer>END OF LINE_</footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

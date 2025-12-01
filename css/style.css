@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+
+/* --- 1. VARIABLES & BASE --- */
+:root {
+    --bg-color: #020202;
+    --panel-bg: rgba(10, 10, 12, 0.85);
+    --cp-yellow: #fcee0a;
+    --cp-red: #ff003c;
+    --cp-blue: #00f0ff;
+    --text-main: #b8b8b8;
+    --text-bright: #ffffff;
+    --border-color: #333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Share Tech Mono', monospace;
+    line-height: 1.5;
+    overflow-x: hidden;
+    /* Animation d'entrée de page */
+    animation: pageLoad 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes pageLoad {
+    0% { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* --- 2. AMBIANCE (Scanlines) --- */
+.scanlines {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+    background-size: 100% 4px; pointer-events: none; z-index: 90;
+}
+
+/* --- 3. LAYOUT --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.grid-system {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 850px) {
+    .grid-system { grid-template-columns: 1fr; }
+}
+
+main { height: 100%; }
+
+/* --- 4. HEADER & GLITCH EFFECT (Réparé) --- */
+header {
+    border-bottom: 2px solid var(--cp-yellow);
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Pousse les éléments à chaque extrémité */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px dotted var(--border-color); /* Ligne discrète de séparation */
+    padding-bottom: 10px;
+}
+
+/* Style de base du bouton (Mode Cyberpunk) */
+.theme-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--cp-yellow);
+    color: var(--cp-yellow);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    /* Pour éviter qu'il change de taille au survol */
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 1;
+}
+
+.theme-btn:hover {
+    background: var(--cp-yellow);
+    color: #000;
+    box-shadow: 0 0 10px var(--cp-yellow); /* Glow néon */
+}
+
+.wired-status { color: var(--cp-red); font-size: 0.8em; letter-spacing: 2px; }
+.blink { animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: var(--cp-yellow);
+    text-shadow: 3px 3px 0px rgba(255, 0, 60, 0.4);
+    line-height: 1;
+    margin: 10px 0;
+    position: relative; /* Important pour le glitch */
+}
+
+/* Le CSS du Glitch */
+.glitch { position: relative; }
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-color);
+}
+.glitch::before {
+    left: 2px; text-shadow: -1px 0 var(--cp-red);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px; text-shadow: -1px 0 var(--cp-blue);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 30px, 0); }
+    20% { clip: rect(80px, 9999px, 100px, 0); }
+    40% { clip: rect(10px, 9999px, 50px, 0); }
+    60% { clip: rect(60px, 9999px, 80px, 0); }
+    80% { clip: rect(30px, 9999px, 60px, 0); }
+    100% { clip: rect(90px, 9999px, 110px, 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip: rect(60px, 9999px, 80px, 0); }
+    20% { clip: rect(10px, 9999px, 30px, 0); }
+    40% { clip: rect(90px, 9999px, 110px, 0); }
+    60% { clip: rect(30px, 9999px, 50px, 0); }
+    80% { clip: rect(70px, 9999px, 90px, 0); }
+    100% { clip: rect(20px, 9999px, 40px, 0); }
+}
+
+/* --- 5. NAVIGATION MENU --- */
+.nav-menu {
+    margin-top: 30px;
+    border-top: 1px dashed #333;
+    padding-top: 20px;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: rgba(0, 240, 255, 0.05);
+    border-left: 3px solid #333;
+    color: var(--text-main);
+    text-decoration: none;
+    font-family: 'Orbitron';
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-link:hover {
+    background: rgba(0, 240, 255, 0.15);
+    border-left-color: var(--cp-yellow);
+    color: #fff;
+    padding-left: 20px;
+}
+
+.nav-link.active {
+    background: rgba(255, 0, 60, 0.1);
+    border-left-color: var(--cp-red);
+    color: var(--cp-red);
+    box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
+}
+
+.nav-link.active::after {
+    content: '<'; position: absolute; right: 15px;
+}
+
+/* --- 6. PORTRAIT AREA --- */
+.portrait-frame {
+    width: 100%; height: 300px;
+    border: 1px solid var(--cp-blue);
+    position: relative; margin-bottom: 30px;
+    overflow: hidden; background: #000;
+}
+.portrait-frame::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.2); pointer-events: none;
+}
+.portrait-img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(100%) contrast(1.2) brightness(0.8); transition: 0.5s;
+}
+.portrait-frame:hover .portrait-img { filter: grayscale(0%) contrast(1); }
+.scan-bar {
+    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--cp-red); box-shadow: 0 0 10px var(--cp-red);
+    animation: scan 3s linear infinite; opacity: 0.7;
+}
+@keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+.img-caption {
+    position: absolute; bottom: 5px; right: 5px;
+    background: var(--cp-blue); color: #000;
+    font-size: 0.7rem; padding: 2px 5px; font-weight: bold;
+}
+
+/* --- 7. CARDS & SECTIONS (Le coin jaune est ici !) --- */
+.card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    /* Coupe le coin en bas à droite */
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0 100%
+    );
+}
+
+/* Le carré jaune décoratif */
+.card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--cp-yellow); /* Couleur du coin */
+    z-index: 5;
+}
+
+.card h2 {
+    font-family: 'Orbitron'; color: var(--cp-blue);
+    border-bottom: 1px dashed var(--cp-blue);
+    padding-bottom: 5px; margin-bottom: 20px;
+}
+
+.red-glow { border-color: var(--cp-red); }
+.red-glow h2 { color: var(--cp-red); border-color: var(--cp-red); }
+
+/* --- 8. DETAILS (Tags, Listes, Jobs) --- */
+.contact-info p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.contact-info span {
+    min-width: auto;
+    width: 7ch;
+    color: var(--cp-yellow);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.contact-info a, .contact-info {
+    color: inherit;
+    text-decoration: none;
+    text-align: left;
+}
+
+.contact-info a:hover {
+    color: var(--cp-blue);
+    text-decoration: underline;
+}
+
+.skill-tag {
+    display: inline-block; border: 1px solid var(--cp-yellow);
+    color: var(--cp-yellow); padding: 4px 8px; font-size: 0.8rem;
+    margin: 0 4px 4px 0; background: rgba(252, 238, 10, 0.05);
+}
+
+.highlight-text { color: #fff; font-size: 1.1rem; margin-bottom: 15px; }
+
+/* Timeline & Jobs */
+.timeline-item {
+    border-left: 2px solid var(--cp-blue); padding-left: 15px;
+    margin-bottom: 25px; position: relative;
+}
+.timeline-item::before {
+    content: ''; position: absolute; left: -6px; top: 0;
+    width: 10px; height: 10px; background: var(--cp-blue);
+}
+.time-date { color: var(--cp-blue); font-size: 0.85rem; display: block; }
+.place { font-style: italic; color: #777; font-size: 0.9rem; }
+.timeline-item h3 { color: #fff; margin: 2px 0; }
+
+.job-item { margin-bottom: 30px; }
+.job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+.job-header h3 { color: #fff; font-size: 1.1rem; }
+.company { color: var(--cp-red); font-weight: bold; }
+.job-date { font-size: 0.8rem; color: #666; margin-bottom: 10px; border-bottom: 1px solid #222; display: inline-block;}
+.job-details { list-style: square; padding-left: 20px; color: #aaa; }
+.job-details li { margin-bottom: 5px; }
+
+/* Projects Grid */
+.project-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;
+}
+.project-card {
+    background: rgba(255,255,255,0.03); border: 1px solid #333;
+    padding: 15px; transition: 0.3s;
+}
+.project-card:hover { border-color: var(--cp-yellow); transform: translateY(-3px); }
+.project-card h3 { color: var(--cp-yellow); font-size: 1rem; margin-bottom: 5px; }
+
+/* --- 9. FOOTER --- */
+footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: #444; padding-bottom: 20px;}
+
+/* ==========================================================================
+   /// SYSTEM OVERRIDE: PROJECT GESTALT & YoRHa [HYBRID MODE]
+   ========================================================================== */
+
+/* Import de la police "Cinzel" (Rappelle les textes du Grimoire Weiss) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap');
+
+/* --- 1. VARIABLES & AMBIANCE (Grimoire Style) --- */
+body.nier-mode {
+    --bg-color: #d8d3c5;       /* Papier ancien / Beige chaud */
+    --panel-bg: #e6e2d3;       /* Pages de livre */
+    --cp-yellow: #2b2b2b;      /* Noir Encre */
+    --cp-red: #7a1f1f;         /* Optionnel : Rouge sang séché ou Violet magie */
+    --cp-blue: #5c5c5c;        /* Gris crayon */
+    --text-main: #3e3b34;      /* Texte principal gris foncé */
+    --border-color: #8c867a;   /* Bordure style reliure */
+
+    /* Fond : Texture "Papier" + Cercle Magique subtil */
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.1) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.02) 2px);
+}
+
+/* --- 2. NETTOYAGE TOTAL DU CYBERPUNK --- */
+body.nier-mode .scanlines,
+body.nier-mode .noise,
+body.nier-mode .glitch::before,
+body.nier-mode .glitch::after {
+    display: none !important; /* On tue le numérique */
+}
+
+/* --- 3. TYPOGRAPHIE "REPLICANT" --- */
+body.nier-mode {
+    font-family: 'Cormorant Garamond', serif; /* Corps de texte style roman */
+    font-size: 1.1rem; /* Légèrement plus gros pour la lisibilité */
+}
+
+body.nier-mode h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #111;
+    text-shadow: 0px 0px 15px rgba(0,0,0,0.2); /* Aura mystique */
+    border-bottom: 2px solid #111;
+    position: relative;
+}
+
+/* Petit ornement sous le titre (Style Grimoire) */
+body.nier-mode h1::after {
+    content: '❖'; /* Symbole décoratif */
+    display: block;
+    font-size: 1rem;
+    color: #111;
+    text-align: center;
+    margin-top: 5px;
+}
+
+body.nier-mode h2 {
+    font-family: 'Cinzel', serif;
+    border-bottom: 1px double var(--cp-yellow); /* Double ligne style livre */
+    text-align: center; /* Titres centrés comme un chapitre */
+    margin-bottom: 25px;
+}
+
+/* --- 4. CARTES & CADRES (Style Reliure) --- */
+body.nier-mode .card {
+    clip-path: none !important; /* Adieu le coin coupé */
+    background: var(--panel-bg);
+    border: 3px double #555; /* Bordure double "Livre ancien" */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Ombre douce, posée sur une table */
+    border-radius: 2px;
+}
+
+/* Ornements aux 4 coins (Simule les coins métalliques d'un grimoire) */
+body.nier-mode .card::before,
+body.nier-mode .card::after {
+    content: ''; position: absolute;
+    width: 10px; height: 10px;
+    border: 2px solid #222;
+    transition: 0.3s;
+}
+body.nier-mode .card::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+body.nier-mode .card::after { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+/* --- 5. PORTRAIT (Le Cercle Magique) --- */
+body.nier-mode .portrait-frame {
+    border: none;
+    background: transparent;
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+    overflow: visible; /* Pour laisser dépasser le cercle */
+}
+
+/* Le cercle magique rotatif derrière la photo */
+body.nier-mode .portrait-frame::before {
+    content: '';
+    position: absolute;
+    width: 120%; height: 120%;
+    border: 1px dashed #333;
+    border-radius: 50%;
+    z-index: 0;
+    animation: magicSpin 20s linear infinite;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" stroke="black" fill="none" stroke-width="0.5"/><rect x="48" y="2" width="4" height="4" fill="black"/><rect x="48" y="94" width="4" height="4" fill="black"/><rect x="2" y="48" width="4" height="4" fill="black"/><rect x="94" y="48" width="4" height="4" fill="black"/></svg>');
+}
+
+@keyframes magicSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+body.nier-mode .portrait-img {
+    width: 90%; height: 90%;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 1px #333;
+    z-index: 2;
+    filter: none;
+}
+
+body.nier-mode .scan-bar,
+body.nier-mode .img-caption { display: none; }
+
+/* --- 6. NAVIGATION & BOUTONS --- */
+body.nier-mode .nav-link {
+    font-family: 'Cinzel', serif;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: #555;
+    text-align: center; /* Centré comme un menu de RPG */
+}
+
+body.nier-mode .nav-link:hover {
+    color: #000;
+    letter-spacing: 2px; /* Effet d'expansion magique */
+    background: rgba(0,0,0,0.05);
+}
+
+body.nier-mode .nav-link.active {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    box-shadow: none;
+}
+body.nier-mode .nav-link.active::after { content: ''; } /* On retire la flèche */
+
+/* --- 7. ELEMENTS DIVERS --- */
+/* Tags plus discrets */
+body.nier-mode .skill-tag {
+    background: #fff;
+    border: 1px solid #aaa;
+    color: #333;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    border-radius: 20px; /* Arrondi style étiquette */
+}
+
+/* Timeline verticale */
+body.nier-mode .timeline-item {
+    border-left: 2px solid #aaa;
+}
+body.nier-mode .timeline-item::before {
+    background: #fff; border: 2px solid #333;
+    border-radius: 50%; /* Points ronds */
+}
+
+/* Correction bouton Theme */
+body.nier-mode .theme-btn {
+    font-family: 'Cinzel', serif;
+    border: 2px solid #333;
+    color: #333;
+    background: transparent;
+    font-weight: bold;
+}
+body.nier-mode .theme-btn:hover {
+    background: #333;
+    color: #fff;
+}

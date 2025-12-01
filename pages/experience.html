@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en,fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXP // REMY_MARTIN</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'nier') {
+            document.body.classList.add('nier-mode');
+        }
+    </script>
+    <div class="scanlines"></div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="top-bar">
+                    <span class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+                    <button id="theme-toggle" class="theme-btn">[ OS: ARASAKA ]</button>
+                </div>
+                <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
+                <div class="subtitle typing-cursor" id="typing-text"></div>
+            </div>
+        </header>
+
+        <div class="grid-system">
+            <aside>
+                <div class="portrait-frame">
+                    <div class="portrait-overlay"></div>
+                    <img src="../image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
+                    <div class="scan-bar"></div>
+                    <span class="img-caption">ID: CONFIRMED</span>
+                </div>
+
+                <nav class="nav-menu">
+                    <a href="../index.html" class="nav-link">01 // ACCUEIL</a>
+                    <a href="cursus.html" class="nav-link">02 // CURSUS</a>
+                    <a href="experience.html" class="nav-link active">03 // EXPÉRIENCE</a>
+                    <a href="portfolio.html" class="nav-link">04 // RÉALISATIONS</a>
+                </nav>
+
+                <section class="card" style="margin-top: 20px;">
+                    <h2>// DATA_LINK</h2>
+                    <div class="contact-info">
+                        <p><span>[LOC]</span> Douai, FR</p>
+                        <p><span>[MAIL]</span> remy.martin0106@outlook.com</p>
+                        <p><span>[GIT]</span><a href="https://github.com/Shaflesp" target="_blank">github.com/Shaflesp</a></p>
+                        <p><span>[TEL]</span>06-14-41-54-14</p>
+                    </div>
+                </section>
+            </aside>
+<!--            <main>-->
+<!--                <section class="card red-glow">-->
+<!--                    <h2>// MISSION_LOGS (EXP)</h2>-->
+<!--                    <p class="highlight-text">Historique complet des interventions professionnelles.</p>-->
+<!--                </section>-->
+
+<!--                <section class="card">-->
+<!--                    <div class="job-header">-->
+<!--                        <h3>DÉVELOPPEUR FULLSTACK STAGIAIRE</h3>-->
+<!--                        <span class="company">WEBAGENCY CORP.</span>-->
+<!--                    </div>-->
+<!--                    <div class="job-date">AVRIL 2024 - JUIN 2024</div>-->
+
+<!--                    <p style="margin: 15px 0;">Développement d'une plateforme interne de gestion de tickets clients.</p>-->
+
+<!--                    <div class="tags-container" style="margin-bottom: 15px;">-->
+<!--                        <span class="skill-tag">Vue.js</span>-->
+<!--                        <span class="skill-tag">Node.js</span>-->
+<!--                        <span class="skill-tag">MongoDB</span>-->
+<!--                    </div>-->
+
+<!--                    <ul class="job-details">-->
+<!--                        <li>> Conception de l'API RESTful (Express).</li>-->
+<!--                        <li>> Création de composants front-end réutilisables.</li>-->
+<!--                        <li>> Réduction du temps de traitement des tickets de 30%.</li>-->
+<!--                    </ul>-->
+<!--                </section>-->
+
+<!--                <section class="card">-->
+<!--                    <div class="job-header">-->
+<!--                        <h3>TECHNICIEN RÉSEAU BÉNÉVOLE</h3>-->
+<!--                        <span class="company">LAN PARTY ASSOC.</span>-->
+<!--                    </div>-->
+<!--                    <div class="job-date">2022 - 2023</div>-->
+<!--                    <p style="margin: 15px 0;">Gestion de l'infrastructure réseau pour des événements de 200 personnes.</p>-->
+<!--                    <ul class="job-details">-->
+<!--                        <li>> Câblage et configuration de switchs Cisco.</li>-->
+<!--                        <li>> Mise en place d'un serveur de cache de jeux (SteamCache).</li>-->
+<!--                    </ul>-->
+<!--                </section>-->
+<!--            </main>-->
+            <main>
+                <section class="card red-glow">
+                    <h2>// SYSTEM_BOOT_LOGS</h2>
+                    <p class="highlight-text">> Initializing Career Protocol...</p>
+                    <p>> User status: <span style="color:var(--cp-yellow)">READY_FOR_DEPLOYMENT</span></p>
+                    <p>Actuellement en recherche de ma première mission (Stage / Alternance). Système optimisé pour l'apprentissage rapide et l'adaptation aux nouvelles technologies.</p>
+                </section>
+
+                <section class="card">
+                    <div class="job-header">
+                        <h3>PROJETS ACADÉMIQUES & TPs</h3>
+                        <span class="company">TRAINING_FACILITY</span>
+                    </div>
+                    <div class="job-date">2023 - PRÉSENT</div>
+
+                    <p style="margin: 15px 0;">Réalisation de divers projets techniques dans le cadre du cursus universitaire.</p>
+
+                    <div class="tags-container" style="margin-bottom: 15px;">
+                        <span class="skill-tag">JAVA</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">WEB</span>
+                    </div>
+
+                    <ul class="job-details">
+                        <li>> Création d'un site web vitrine (HTML/CSS).</li>
+                        <li>> Gestion de base de données relationnelle (MySQL).</li>
+                        <li>> Développement d'algorithmes de tri en Python.</li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <div class="job-header">
+                        <h3>AUTO-FORMATION</h3>
+                        <span class="company">SELF_LEARNING</span>
+                    </div>
+                    <div class="job-date">PERMANENT</div>
+                    <p style="margin: 15px 0;">Veille technologique active et apprentissage en autonomie sur le Net.</p>
+                    <ul class="job-details">
+                        <li>> Apprentissage des frameworks modernes (React, Vue).</li>
+                        <li>> Résolution de challenges de code (CodeWars, Root-Me).</li>
+                        <li>> Configuration de l'environnement de développement personnel.</li>
+                    </ul>
+                </section>
+
+                <section class="card" style="border: 1px dashed var(--cp-yellow); background: rgba(252, 238, 10, 0.02);">
+                    <h3 style="color: var(--cp-yellow); text-align: center;">// AWAITING_FIRST_CONTRACT</h3>
+                    <p style="text-align: center; margin-top: 10px; font-size: 0.9em;">
+                        Le matériel est prêt. Le logiciel est à jour.<br>
+                        En attente d'une opportunité pour exécuter le code en production.
+                    </p>
+                </section>
+            </main>
+            </div>
+
+        <footer>END OF LINE_</footer>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
