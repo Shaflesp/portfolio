@@ -21,35 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
        2. NAVIGATION AUTO (Active Link) - CORRIGÉ
     --------------------------------------------------- */
 
-/* ---------------------------------------------------
-       2. NAVIGATION AUTO (Active Link) - CORRIGE POUR SERVEUR
-    --------------------------------------------------- */
+    const path = window.location.pathname;
+    let pageName = path.split("/").pop().replace('.html', '');
 
-    // 1. Récupère le nom du chemin et le nettoie
-    let urlPath = window.location.pathname.split("/").pop();
-
-    // Retire l'extension .html (si elle est présente)
-    let currentPageName = urlPath.replace('.html', '');
-
-    // Si le chemin est vide (racine, ex: https://monsite.com/), on le force à 'index'
-    if (currentPageName === "") {
-        currentPageName = "index";
-    }
+    // Si vide, c'est index
+    if (pageName === "" || pageName === "/") pageName = "index";
 
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
-        // Nettoyage préventif
         link.classList.remove('active');
 
-        // 2. Récupère le nom du fichier depuis le href du lien (ex: 'cursus.html')
         const linkHref = link.getAttribute('href');
+        const linkTarget = linkHref.split("/").pop().replace('.html', '');
 
-        // Retire l'extension .html du lien pour la comparaison (ex: 'cursus')
-        const linkName = linkHref.replace('.html', '');
-
-        // 3. Comparaison : 'cursus' (URL) === 'cursus' (Lien)
-        if (linkName === currentPageName) {
+        if (linkTarget === pageName) {
             link.classList.add('active');
         }
     });
