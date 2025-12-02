@@ -20,7 +20,6 @@ body {
     font-family: 'Share Tech Mono', monospace;
     line-height: 1.5;
     overflow-x: hidden;
-    /* Animation d'entrée de page */
     animation: pageLoad 0.5s ease-out forwards;
     opacity: 0;
 }
@@ -30,7 +29,7 @@ body {
     100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* --- 2. AMBIANCE (Scanlines) --- */
+/* --- 2. AMBIANCE  --- */
 .scanlines {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
@@ -45,7 +44,6 @@ body {
     position: relative;
     z-index: 10;
 }
-
 .grid-system {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -55,16 +53,14 @@ body {
 @media (max-width: 850px) {
     .grid-system { grid-template-columns: 1fr; }
 }
-
 main { height: 100%; }
 
-/* --- 4. HEADER & GLITCH EFFECT (Réparé) --- */
+/* --- 4. HEADER & GLITCH EFFECT --- */
 header {
     border-bottom: 2px solid var(--cp-yellow);
     margin-bottom: 40px;
     padding-bottom: 20px;
 }
-
 .top-bar {
     display: flex;
     justify-content: space-between; /* Pousse les éléments à chaque extrémité */
@@ -75,7 +71,6 @@ header {
     padding-bottom: 10px;
 }
 
-/* Style de base du bouton (Mode Cyberpunk) */
 .theme-btn {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid var(--cp-yellow);
@@ -91,7 +86,6 @@ header {
     height: 32px;
     line-height: 1;
 }
-
 .theme-btn:hover {
     background: var(--cp-yellow);
     color: #000;
@@ -109,10 +103,9 @@ h1 {
     text-shadow: 3px 3px 0px rgba(255, 0, 60, 0.4);
     line-height: 1;
     margin: 10px 0;
-    position: relative; /* Important pour le glitch */
+    position: relative;
 }
 
-/* Le CSS du Glitch */
 .glitch { position: relative; }
 .glitch::before, .glitch::after {
     content: attr(data-text);
@@ -152,7 +145,6 @@ h1 {
     border-top: 1px dashed #333;
     padding-top: 20px;
 }
-
 .nav-link {
     display: block;
     padding: 12px 15px;
@@ -165,26 +157,23 @@ h1 {
     transition: 0.3s;
     position: relative;
 }
-
 .nav-link:hover {
     background: rgba(0, 240, 255, 0.15);
     border-left-color: var(--cp-yellow);
     color: #fff;
     padding-left: 20px;
 }
-
 .nav-link.active {
     background: rgba(255, 0, 60, 0.1);
     border-left-color: var(--cp-red);
     color: var(--cp-red);
     box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
 }
-
 .nav-link.active::after {
     content: '<'; position: absolute; right: 15px;
 }
 
-/* --- 6. PORTRAIT AREA --- */
+/* --- 6. PORTRAIT --- */
 .portrait-frame {
     width: 100%; height: 300px;
     border: 1px solid var(--cp-blue);
@@ -212,7 +201,7 @@ h1 {
     font-size: 0.7rem; padding: 2px 5px; font-weight: bold;
 }
 
-/* --- 7. CARDS & SECTIONS (Le coin jaune est ici !) --- */
+/* --- 7. CARDS & SECTIONS --- */
 .card {
     background: var(--panel-bg);
     border: 1px solid var(--border-color);
@@ -229,7 +218,6 @@ h1 {
     );
 }
 
-/* Le carré jaune décoratif */
 .card::before {
     content: '';
     position: absolute;
@@ -259,7 +247,6 @@ h1 {
     font-size: 0.9rem;
     line-height: 1.4;
 }
-
 .contact-info span {
     min-width: auto;
     width: 7ch;
@@ -267,13 +254,11 @@ h1 {
     font-weight: bold;
     flex-shrink: 0;
 }
-
 .contact-info a, .contact-info {
     color: inherit;
     text-decoration: none;
     text-align: left;
 }
-
 .contact-info a:hover {
     color: var(--cp-blue);
     text-decoration: underline;
@@ -287,7 +272,7 @@ h1 {
 
 .highlight-text { color: #fff; font-size: 1.1rem; margin-bottom: 15px; }
 
-/* Timeline & Jobs */
+
 .timeline-item {
     border-left: 2px solid var(--cp-blue); padding-left: 15px;
     margin-bottom: 25px; position: relative;
@@ -299,6 +284,11 @@ h1 {
 .time-date { color: var(--cp-blue); font-size: 0.85rem; display: block; }
 .place { font-style: italic; color: #777; font-size: 0.9rem; }
 .timeline-item h3 { color: #fff; margin: 2px 0; }
+.timeline-desc {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #aaa; /* Le gris clair pour le mode sombre */
+}
 
 .job-item { margin-bottom: 30px; }
 .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
@@ -308,7 +298,6 @@ h1 {
 .job-details { list-style: square; padding-left: 20px; color: #aaa; }
 .job-details li { margin-bottom: 5px; }
 
-/* Projects Grid */
 .project-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;
 }
@@ -326,39 +315,58 @@ footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: #444; p
    /// SYSTEM OVERRIDE: PROJECT GESTALT & YoRHa [HYBRID MODE]
    ========================================================================== */
 
-/* Import de la police "Cinzel" (Rappelle les textes du Grimoire Weiss) */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap');
+@font-face {
+    font-family: 'Angelic';
+    src: url('../fonts/ANGELIC.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-/* --- 1. VARIABLES & AMBIANCE (Grimoire Style) --- */
+/* --- 1. VARIABLES & AMBIANCE --- */
+
 body.nier-mode {
-    --bg-color: #d8d3c5;       /* Papier ancien / Beige chaud */
-    --panel-bg: #e6e2d3;       /* Pages de livre */
-    --cp-yellow: #2b2b2b;      /* Noir Encre */
-    --cp-red: #7a1f1f;         /* Optionnel : Rouge sang séché ou Violet magie */
-    --cp-blue: #5c5c5c;        /* Gris crayon */
-    --text-main: #3e3b34;      /* Texte principal gris foncé */
-    --border-color: #8c867a;   /* Bordure style reliure */
+    --bg-color: #dcd8c8;
+    --panel-bg: #e8e4d2;
+    --cp-yellow: #3d3b36;
+    --cp-red: #8a1c1c;
+    --cp-blue: #59554b;
+    --text-main: #2b2b2b;
+    --border-color: #757060;
 
-    /* Fond : Texture "Papier" + Cercle Magique subtil */
     background-color: var(--bg-color);
     background-image:
         radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.1) 100%),
         repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.02) 2px);
 }
+body.nier-mode h3,
+body.nier-mode .highlight-text,
+body.nier-mode .job-header h3,
+body.nier-mode .nav-link:hover {
+    color: #111 !important;
+    text-shadow: none;
+}
+body.nier-mode .job-date {
+    color: var(--cp-red);
+    border-bottom: 1px solid var(--cp-red);
+}
+body.nier-mode .job-details {
+    color: #4a4a4a;
+}
 
-/* --- 2. NETTOYAGE TOTAL DU CYBERPUNK --- */
+/* --- 2. CYBERPUNK OVERWRITE --- */
 body.nier-mode .scanlines,
 body.nier-mode .noise,
 body.nier-mode .glitch::before,
 body.nier-mode .glitch::after {
-    display: none !important; /* On tue le numérique */
+    display: none !important;
 }
 
 /* --- 3. TYPOGRAPHIE "REPLICANT" --- */
 body.nier-mode {
-    font-family: 'Cormorant Garamond', serif; /* Corps de texte style roman */
-    font-size: 1.1rem; /* Légèrement plus gros pour la lisibilité */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
 }
 
 body.nier-mode h1 {
@@ -366,38 +374,34 @@ body.nier-mode h1 {
     font-weight: 900;
     letter-spacing: 5px;
     color: #111;
-    text-shadow: 0px 0px 15px rgba(0,0,0,0.2); /* Aura mystique */
+    text-shadow: 0px 0px 15px rgba(0,0,0,0.2);
     border-bottom: 2px solid #111;
     position: relative;
 }
-
-/* Petit ornement sous le titre (Style Grimoire) */
 body.nier-mode h1::after {
-    content: '❖'; /* Symbole décoratif */
+    content: '❖';
     display: block;
     font-size: 1rem;
     color: #111;
     text-align: center;
     margin-top: 5px;
 }
-
 body.nier-mode h2 {
     font-family: 'Cinzel', serif;
-    border-bottom: 1px double var(--cp-yellow); /* Double ligne style livre */
-    text-align: center; /* Titres centrés comme un chapitre */
+    border-bottom: 1px double var(--cp-yellow);
+    text-align: center;
     margin-bottom: 25px;
 }
 
-/* --- 4. CARTES & CADRES (Style Reliure) --- */
+/* --- 4. CARTES & CADRES  --- */
 body.nier-mode .card {
-    clip-path: none !important; /* Adieu le coin coupé */
+    clip-path: none !important;
     background: var(--panel-bg);
-    border: 3px double #555; /* Bordure double "Livre ancien" */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Ombre douce, posée sur une table */
+    border: 3px double #555;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border-radius: 2px;
 }
 
-/* Ornements aux 4 coins (Simule les coins métalliques d'un grimoire) */
 body.nier-mode .card::before,
 body.nier-mode .card::after {
     content: ''; position: absolute;
@@ -408,16 +412,15 @@ body.nier-mode .card::after {
 body.nier-mode .card::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
 body.nier-mode .card::after { bottom: 4px; right: 4px; border-left: none; border-top: none; }
 
-/* --- 5. PORTRAIT (Le Cercle Magique) --- */
+/* --- 5. PORTRAIT  --- */
 body.nier-mode .portrait-frame {
     border: none;
     background: transparent;
     display: flex; justify-content: center; align-items: center;
     position: relative;
-    overflow: visible; /* Pour laisser dépasser le cercle */
+    overflow: visible;
 }
 
-/* Le cercle magique rotatif derrière la photo */
 body.nier-mode .portrait-frame::before {
     content: '';
     position: absolute;
@@ -450,44 +453,100 @@ body.nier-mode .nav-link {
     border: none;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     color: #555;
-    text-align: center; /* Centré comme un menu de RPG */
+    text-align: center;
 }
-
 body.nier-mode .nav-link:hover {
     color: #000;
-    letter-spacing: 2px; /* Effet d'expansion magique */
+    letter-spacing: 2px;
     background: rgba(0,0,0,0.05);
 }
-
 body.nier-mode .nav-link.active {
     color: #000;
     font-weight: bold;
     border-bottom: 2px solid #000;
     box-shadow: none;
 }
-body.nier-mode .nav-link.active::after { content: ''; } /* On retire la flèche */
+body.nier-mode .nav-link.active::after { content: ''; }
 
 /* --- 7. ELEMENTS DIVERS --- */
-/* Tags plus discrets */
 body.nier-mode .skill-tag {
-    background: #fff;
-    border: 1px solid #aaa;
-    color: #333;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(to bottom, #e8e4d2, #dcd8c8);
+    border: 2px solid #555;
+    color: #111;
+    padding: 6px 12px;
+    margin: 6px;
+    font-size: 0.9rem;
     font-weight: bold;
-    border-radius: 20px; /* Arrondi style étiquette */
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+
+    outline: 1px solid var(--cp-red);
+    outline-offset: -4px;
+    transition: all 0.3s ease;
 }
 
-/* Timeline verticale */
+body.nier-mode .skill-tag:hover {
+    background: #fff;
+    color: var(--cp-red);
+    box-shadow: 0 0 10px var(--cp-red);
+    border-color: var(--cp-red);
+    transform: translateY(-2px);
+    cursor: help;
+}
+
+body.nier-mode .skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: -4px;
+    width: 4px; height: 4px;
+    background: var(--cp-red);
+    transform: translateY(-50%) rotate(45deg);
+}
+
 body.nier-mode .timeline-item {
-    border-left: 2px solid #aaa;
+    border-left: none;
+    position: relative;
+    margin-left: 20px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+body.nier-mode .timeline-item::after {
+    content: "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+
+    font-family: 'Angelic'; /* TA FONT CUSTOM */
+    font-size: 14px;
+    color: var(--cp-red);
+    opacity: 0.4;
+
+    position: absolute;
+    top: 25px;
+    left: -5px;
+    bottom: 0;
+    width: 20px;
+
+    word-break: break-all;
+    line-height: 1.2;
+    overflow: hidden;
+    letter-spacing: 2px;
+    text-align: center;
 }
 body.nier-mode .timeline-item::before {
-    background: #fff; border: 2px solid #333;
-    border-radius: 50%; /* Points ronds */
+    content: '❖';
+    position: absolute;
+    left: -9px;
+    top: 0;
+    font-size: 1.8rem;
+    color: var(--cp-red);
+    background: var(--panel-bg);
+    z-index: 2;
+    line-height: 0.8;
+}
+body.nier-mode .timeline-desc {
+    color: var(--cp-yellow);
 }
 
-/* Correction bouton Theme */
 body.nier-mode .theme-btn {
     font-family: 'Cinzel', serif;
     border: 2px solid #333;
@@ -502,10 +561,6 @@ body.nier-mode .theme-btn:hover {
 
 /* ==========================================================================
    /// RESPONSIVE
-   ========================================================================== */
-
-/* ==========================================================================
-   /// RESPONSIVE DESIGN (FLUIDE & PROPORTIONNEL)
    ========================================================================== */
 
 @media screen and (max-width: 900px) {
@@ -532,35 +587,24 @@ body.nier-mode .theme-btn:hover {
     }
 
     .portrait-frame {
-        /* Utilisation de 'vw' (Viewport Width).
-           40vw = L'image prend 40% de la largeur de l'écran.
-        */
         width: 40vw;
-
-        /* aspect-ratio: 1/1 force le carré parfait automatiquement,
-           quelle que soit la largeur. Plus besoin de régler height.
-        */
         height: auto;
         aspect-ratio: 1 / 1;
 
-        /* Bornes de sécurité : */
-        min-width: 200px; /* Ne devient jamais plus petit que 200px */
-        max-width: 350px; /* Ne devient jamais plus grand que 350px */
-
+        min-width: 200px;
+        max-width: 350px;
         margin: 0 auto 25px auto;
     }
 
-    /* Ajustement spécifique pour NieR sur tablette/mobile */
-    /* Pour éviter que le cercle rotatif (qui dépasse de 20%) ne sorte de l'écran */
     body.nier-mode .portrait-frame {
-        margin-top: 20px; /* Un peu d'air en haut pour le cercle */
+        margin-top: 20px;
         margin-bottom: 40px;
     }
 
     /* 3. MENU & NAVIGATION */
     .nav-menu {
         width: 100%;
-        max-width: 400px; /* On évite que les boutons soient trop larges */
+        max-width: 400px;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -572,7 +616,6 @@ body.nier-mode .theme-btn:hover {
         border-left: none;
         border-bottom: 1px solid #333;
     }
-
     .nav-link:hover { padding-left: 0; }
 
     body.nier-mode .nav-link {
@@ -582,10 +625,9 @@ body.nier-mode .theme-btn:hover {
 
     /* 4. TEXTES & TITRES */
     h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem); /* Taille dynamique fluide */
+        font-size: clamp(2rem, 5vw, 3.5rem);
         line-height: 1.2;
     }
-
     .subtitle { min-height: 1.5em; font-size: 1rem; }
 
     /* 5. CONTACT & CONTENU */
@@ -594,10 +636,8 @@ body.nier-mode .theme-btn:hover {
         max-width: 350px;
         margin: 0 auto;
     }
-
     main { width: 100%; }
     .project-grid { grid-template-columns: 1fr; }
-
     .timeline-item { margin-left: 10px; padding-right: 0; }
     .job-header { flex-direction: column; align-items: flex-start; gap: 5px; }
 }
@@ -607,7 +647,6 @@ body.nier-mode .theme-btn:hover {
     .portrait-frame {
         width: 60vw;
     }
-
     h1 { font-size: 1.8rem; }
     .contact-info p {
         flex-wrap: wrap;
