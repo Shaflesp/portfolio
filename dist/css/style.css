@@ -246,6 +246,7 @@ h1 {
     margin-bottom: 8px;
     font-size: 0.9rem;
     line-height: 1.4;
+    white-space: nowrap;
 }
 .contact-info span {
     min-width: auto;
@@ -254,9 +255,11 @@ h1 {
     font-weight: bold;
     flex-shrink: 0;
 }
+
 .contact-info a, .contact-info {
     color: inherit;
     text-decoration: none;
+    border-bottom: 1px dotted transparent;
     text-align: left;
 }
 .contact-info a:hover {
@@ -353,6 +356,14 @@ body.nier-mode .job-date {
 }
 body.nier-mode .job-details {
     color: #4a4a4a;
+}
+
+.angelic-icon {
+    font-family: 'Angelic', serif; /* Ta police custom */
+    font-size: 1.2em;
+    margin-right: 10px;
+    vertical-align: middle;
+    color: var(--cp-red); /* Rouge sang pour NieR */
 }
 
 /* --- 2. CYBERPUNK OVERWRITE --- */
@@ -513,9 +524,9 @@ body.nier-mode .timeline-item {
     padding-bottom: 40px;
 }
 body.nier-mode .timeline-item::after {
-    content: "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+    content: "a b c d e g h i k l m n o p q r s t u v y z";
 
-    font-family: 'Angelic'; /* TA FONT CUSTOM */
+    font-family: 'Angelic';
     font-size: 14px;
     color: var(--cp-red);
     opacity: 0.4;
@@ -579,7 +590,7 @@ body.nier-mode .theme-btn:hover {
         margin-bottom: 20px;
     }
 
-    /* 2. PORTRAIT FLUIDE (Le changement majeur) */
+    /* 2. PORTRAIT FLUIDE */
     aside {
         display: flex;
         flex-direction: column;

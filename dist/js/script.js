@@ -3,11 +3,63 @@ document.addEventListener("DOMContentLoaded", () => {
        0. DICTIONNAIRE DE DONNÉES (TEXTES & LORE)
     ============================================================================= */
     const translations = {
-        'cyberpunk': {
+'cyberpunk': {
+            // --- HEADER & NAVIGATION ---
+            'nav-home': '01 // ACCUEIL',
+            'nav-cursus': '02 // CURSUS',
+            'nav-xp': '03 // EXPÉRIENCE',
+            'nav-portfolio': '04 // RÉALISATIONS',
+            
+            // --- STATUS BAR (Haut de page) ---
+            'net-status': 'NET-STATUS: <span class="blink">ONLINE</span>',
+            
+            // --- ACCUEIL (HOME) ---
+            'job-title': 'NETRUNNER // FULLSTACK_DEV',
+            'intro-text': '// INITIALIZING USER PROFILE... <br> Connexion établie. Chargement des modules de compétence.',
+            
+            // --- CURSUS ---
+            'cursus-title': '// EDUCATION_DATABANK',
+            'cursus-intro': 'Extraction des données académiques.',
+            'diploma-but': 'BUT INFORMATIQUE',
+            'desc-but': '> Spécialisation : Développement logiciel & Architecture.',
+            'diploma-bac': 'BACCALAURÉAT GENERAL',
+            'desc-bac': '> Option NSI & Mathématiques. Mention Bien.',
+            'diploma-brevet': 'BREVET DES COLLÈGES',
+
+            // --- FOOTER ---
+            'footer-text': 'END OF LINE_'
         },
+
         'nier': {
+            // --- HEADER & NAVIGATION ---
+            // On utilise 'A', 'B', 'C' avec la font Angelic pour faire des puces runiques
+            'nav-home': '<span class="angelic-icon">A</span> Rapport : Accueil',
+            'nav-cursus': '<span class="angelic-icon">B</span> Chapitre 1 : Apprentissage',
+            'nav-xp': '<span class="angelic-icon">C</span> Registre des Missions',
+            'nav-portfolio': '<span class="angelic-icon">D</span> Armement & Créations',
+
+            // --- STATUS BAR ---
+            'net-status': 'État : <span style="color: #4a4a4a">En cours d\'analyse</span>',
+
+            // --- ACCUEIL (HOME) ---
+            'job-title': 'Unité de Développement <span class="angelic-icon">z</span> Type S',
+            'intro-text': 'Chargement des données de l\'humanité... <br> « Tout ce qui vit est conçu pour finir. »',
+
+            // --- CURSUS ---
+            'cursus-title': '<span class="angelic-icon">m</span> Chapitre 1 : Apprentissage',
+            'cursus-intro': 'Analyse des archives mémorielles du sujet.',
+            
+            // On garde le nom du diplôme lisible, mais la description est "Roleplay"
+            'diploma-but': 'Certification : BUT Informatique',
+            'desc-but': 'Acquisition des langages de l\'Ancien Monde (Java, SQL) pour la préservation des données.',
+            'diploma-bac': 'Certificat de Majorité',
+            'desc-bac': 'Preuve de capacité logique et mathématique.',
+            'diploma-brevet': 'Initialisation du Cycle',
+
+            // --- FOOTER ---
+            'footer-text': 'Glory to Mankind.'
         }
-    };
+    }
 
     /**
      * Fonction qui met à jour le texte de la page en fonction du mode
