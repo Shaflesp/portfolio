@@ -6,15 +6,11 @@
     <title>EXP // REMY_MARTIN</title>
     <base href="/">
 
-    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/base.css">
+     <link rel="stylesheet" href="css/cyberpunk.css" id="theme-css">
 </head>
 <body>
-    <script>
-        if (localStorage.getItem('theme') === 'nier') {
-            document.body.classList.add('nier-mode');
-        }
-    </script>
-    <div class="scanlines"></div>
+    <div class="scanlines" data-theme="cyberpunk"></div>
     <div class="container">
         <header>
             <div class="header-content">
@@ -29,11 +25,13 @@
 
         <div class="grid-system">
             <aside>
-                <div class="portrait-frame">
-                    <div class="portrait-overlay"></div>
+                <div class="portrait-frame" data-theme="cyberpunk">
                     <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
                     <div class="scan-bar"></div>
                     <span class="img-caption">ID: CONFIRMED</span>
+                </div>
+                <div class="portrait-frame" data-theme="nier">
+                    <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
                 </div>
 
                 <nav class="nav-menu">
@@ -98,7 +96,7 @@
                 <section class="card red-glow">
                     <h2>// SYSTEM_BOOT_LOGS</h2>
                     <p class="highlight-text">> Initializing Career Protocol...</p>
-                    <p>> User status: <span style="color:var(--cp-yellow)">READY_FOR_DEPLOYMENT</span></p>
+                    <p>> User status: <span style="color:var(--color1)">READY_FOR_DEPLOYMENT</span></p>
                     <p>Actuellement en recherche de ma première mission (Stage / Alternance). Système optimisé pour l'apprentissage rapide et l'adaptation aux nouvelles technologies.</p>
                 </section>
 
@@ -138,8 +136,8 @@
                     </ul>
                 </section>
 
-                <section class="card" style="border: 1px dashed var(--cp-yellow); background: rgba(252, 238, 10, 0.02);">
-                    <h3 style="color: var(--cp-yellow); text-align: center;">// AWAITING_FIRST_CONTRACT</h3>
+                <section class="card" style="border: 1px dashed var(--color1); background: rgba(252, 238, 10, 0.02);">
+                    <h3 style="color: var(--color1); text-align: center;">// AWAITING_FIRST_CONTRACT</h3>
                     <p style="text-align: center; margin-top: 10px; font-size: 0.9em;">
                         Le matériel est prêt. Le logiciel est à jour.<br>
                         En attente d'une opportunité pour exécuter le code en production.

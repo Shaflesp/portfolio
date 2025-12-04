@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ---------------------------------------------------
        1. EFFET MACHINE A ECRIRE
     --------------------------------------------------- */
-    const subtitleText = "Étudiant en Informatique | Futur Dév Fullstack";
+    const subtitleText = "Étudiant en Informatique | Futur Dév Back-End";
     const typingElement = document.getElementById('typing-text');
     let charIndex = 0;
 
@@ -117,42 +117,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
     /* ---------------------------------------------------
        3. THEME SWITCHER (Cyberpunk <-> NieR)
     --------------------------------------------------- */
     const themeBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
+    const themeLink = document.getElementById('theme-css');
 
-    // Applique le thème sauvegardé
-    if (savedTheme === 'nier') {
-        body.classList.add('nier-mode');
-        if(themeBtn) themeBtn.textContent = "[ OS: YoRHa ]";
-        updateText('nier');
-    } else {
-        updateText('cyberpunk');
+    function switchTheme(newTheme) {
+        if (newTheme === 'nier') {
+            themeLink.href = 'css/nier.css';
+            themeBtn.textContent = "[ OS: YoRHa ]";
+            updateText('nier');
+            console.log("System: YoRHa units connected.");
+        } else {
+            themeLink.href = 'css/cyberpunk.css';
+            themeBtn.textContent = "[ OS: ARASAKA ]";
+            updateText('cyberpunk');
+            console.log("System: Arasaka protocol restored.");
+        }
+        document.querySelectorAll('[data-theme]').forEach(el => {
+            el.style.display = el.dataset.theme === newTheme ? '' : 'none';
+        });
+        localStorage.setItem('theme', newTheme);
     }
+    const initTheme = localStorage.getItem('theme') || 'cyberpunk';
+    switchTheme(initTheme);
 
-    // A. Gestion du clic
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
-            body.classList.toggle('nier-mode');
-
-            if (body.classList.contains('nier-mode')) {
-                themeBtn.textContent = "[ OS: YoRHa ]";
-                localStorage.setItem('theme', 'nier');
-                updateText('nier');
-                console.log("System: YoRHa units connected.");
-            } else {
-                themeBtn.textContent = "[ OS: ARASAKA ]";
-                localStorage.setItem('theme', 'cyberpunk');
-                updateText('cyberpunk');
-                console.log("System: Arasaka protocol restored.");
-            }
+            const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
+            const newTheme = currentTheme === 'cyberpunk' ? 'nier' : 'cyberpunk';
+            switchTheme(newTheme);
         });
     }
-
 
     /* ---------------------------------------------------
        4. EFFET GLITCH ALEATOIRE (Titre H1)
@@ -164,7 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const cyberpunkBlue = getComputedStyle(document.documentElement).getPropertyValue('--cp-blue') || '#00f0ff';
 
         setInterval(() => {
-            if(!body.classList.contains('nier-mode') && Math.random() > 0.95) {
+            const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
+            if (currentTheme === 'cyberpunk' && Math.random() > 0.95) {
 
                 title.style.textShadow = `4px 0 ${cyberpunkRed}, -4px 0 ${cyberpunkBlue}`;
                 title.style.transform = "skewX(-10deg)";

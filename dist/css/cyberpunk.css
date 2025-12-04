@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+
+/* --- 1. VARIABLES & BASE --- */
+:root {
+    --bg-color: #020202;
+    --panel-bg: rgba(10, 10, 12, 0.85);
+    --color1: #fcee0a;
+    --color2: #ff003c;
+    --color3: #00f0ff;
+    /*--color4: #9c27d2;*/
+    /*--color5: #1aff27;*/
+    --text-main: #b8b8b8;
+    --text-bright: #ffffff;
+    --border-color: #333;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* --- 2. AMBIANCE  --- */
+.scanlines {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+    background-size: 100% 4px; pointer-events: none; z-index: 90;
+}
+
+/* --- 3. HEADER & GLITCH EFFECT --- */
+.theme-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color1);
+    color: var(--color1);
+    font-family: 'Share Tech Mono', monospace;
+}
+.theme-btn:hover {
+    background: var(--color1);
+    color: #000;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color1);
+    text-shadow: 3px 3px 0px rgba(255, 0, 60, 0.4);
+}
+
+.glitch { position: relative; }
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-color);
+}
+.glitch::before {
+    left: 2px; text-shadow: -1px 0 var(--color2);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px; text-shadow: -1px 0 var(--color3);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 30px, 0); }
+    20% { clip: rect(80px, 9999px, 100px, 0); }
+    40% { clip: rect(10px, 9999px, 50px, 0); }
+    60% { clip: rect(60px, 9999px, 80px, 0); }
+    80% { clip: rect(30px, 9999px, 60px, 0); }
+    100% { clip: rect(90px, 9999px, 110px, 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip: rect(60px, 9999px, 80px, 0); }
+    20% { clip: rect(10px, 9999px, 30px, 0); }
+    40% { clip: rect(90px, 9999px, 110px, 0); }
+    60% { clip: rect(30px, 9999px, 50px, 0); }
+    80% { clip: rect(70px, 9999px, 90px, 0); }
+    100% { clip: rect(20px, 9999px, 40px, 0); }
+}
+
+/* --- 3. NAVIGATION --- */
+.nav-link {
+    background: rgba(0, 240, 255, 0.05);
+    border-left: 3px solid #333;
+    color: var(--text-main);
+    font-family: 'Orbitron';
+}
+.nav-link:hover {
+    background: rgba(0, 240, 255, 0.15);
+    color: #fff;
+}
+.nav-link.active {
+    background: rgba(255, 0, 60, 0.1);
+    color: var(--color2);
+    box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
+}
+.nav-link.active::after {
+    content: '<';
+}
+
+/* --- 4. PORTRAIT --- */
+.portrait-frame {
+    border: 1px solid var(--color3);
+    overflow: hidden;
+    background: #000;
+}
+.portrait-img {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%) contrast(1.2) brightness(0.8);
+}
+.portrait-frame:hover .portrait-img {filter: grayscale(0%) contrast(1); }
+
+.scan-bar {
+    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--color2); box-shadow: 0 0 10px var(--color2);
+    animation: scan 3s linear infinite; opacity: 0.7;
+}
+@keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+.img-caption {
+    position: absolute; bottom: 5px; right: 5px;
+    background: var(--color3); color: #000;
+    font-size: 0.7rem; padding: 2px 5px; font-weight: bold;
+}
+
+/* --- 5. CARDS & SECTIONS --- */
+.card {
+        border: 1px solid var(--border-color);
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0 100%
+    );
+}
+.card::before {
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+}
+.card h2 {
+    font-family: 'Orbitron'; color: var(--color3);
+}
+/* --- 6. DETAILS --- */
+.skill-tag {
+    border: 1px solid var(--color1);
+    color: var(--color1);
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    margin: 0 4px 4px 0;
+    background: rgba(252, 238, 10, 0.05);
+}
+
+.highlight-text { color: #fff; }
+
+.timeline-item {
+    border-left: 2px solid var(--color3);
+    padding-left: 15px;
+}
+.timeline-item h3 {color: #fff;}
+.timeline-item::before {
+    content: '';
+    left: -6px; top: 0;
+    background: var(--color3);
+}
+.timeline-desc {
+    color: #aaa;
+}
+/* --- 7. JOBS --- */
+.job-header h3 {color: #fff;}
+.job-date {
+    color: #666;
+    border-bottom: 1px solid #222;
+}
+.job-details {color: #aaa;}
+
+
+/* --- RESPONSIVE CYBERPUNK --- */
+@media screen and (max-width: 900px) {
+    .portrait-frame {
+        margin: 0 auto 25px auto;
+    }
+    .nav-link {
+        border-left: none;
+        border-bottom: 1px solid #333;
+    }
+}

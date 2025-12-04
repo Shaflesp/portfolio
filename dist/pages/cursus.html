@@ -6,15 +6,11 @@
     <title>CURSUS // REMY_MARTIN</title>
     <base href="/">
 
-    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/base.css">
+     <link rel="stylesheet" href="css/cyberpunk.css" id="theme-css">
 </head>
 <body>
-    <script>
-        if (localStorage.getItem('theme') === 'nier') {
-            document.body.classList.add('nier-mode');
-        }
-    </script>
-    <div class="scanlines"></div>
+    <div class="scanlines" data-theme="cyberpunk"></div>
     <div class="container">
 
         <header>
@@ -29,13 +25,14 @@
         </header>
 
         <div class="grid-system">
-
             <aside>
-                <div class="portrait-frame">
-                    <div class="portrait-overlay"></div>
+                <div class="portrait-frame" data-theme="cyberpunk">
                     <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
                     <div class="scan-bar"></div>
                     <span class="img-caption">ID: CONFIRMED</span>
+                </div>
+                <div class="portrait-frame" data-theme="nier">
+                    <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
                 </div>
 
                 <nav class="nav-menu">

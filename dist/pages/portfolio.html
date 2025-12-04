@@ -6,15 +6,11 @@
     <title>PROJECTS // REMY_MARTIN</title>
     <base href="/">
 
-    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/base.css">
+     <link rel="stylesheet" href="css/cyberpunk.css" id="theme-css">
 </head>
 <body>
-    <script>
-        if (localStorage.getItem('theme') === 'nier') {
-            document.body.classList.add('nier-mode');
-        }
-    </script>
-    <div class="scanlines"></div>
+    <div class="scanlines" data-theme="cyberpunk"></div>
     <div class="container">
         <header>
             <div class="header-content">
@@ -29,11 +25,13 @@
 
         <div class="grid-system">
             <aside>
-                <div class="portrait-frame">
-                    <div class="portrait-overlay"></div>
+                <div class="portrait-frame" data-theme="cyberpunk">
                     <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
                     <div class="scan-bar"></div>
                     <span class="img-caption">ID: CONFIRMED</span>
+                </div>
+                <div class="portrait-frame" data-theme="nier">
+                    <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
                 </div>
 
                 <nav class="nav-menu">
@@ -64,7 +62,7 @@
                     <article class="card project-card" style="padding: 0; overflow: hidden;">
                         <img src="image/img.png" alt="[IMG_PREVIEW_01]" style="width: 100%; height: 150px; object-fit: cover; border-bottom: 1px solid #333;">
                         <div style="padding: 15px;">
-                            <h3 style="color: var(--cp-yellow);">webPlayer</h3>
+                            <h3 style="color: var(--color1);">webPlayer</h3>
                             <p style="font-size: 0.9em;">Site personnel pour écouter mes musiques préférées.</p>
                             <div style="margin-top: 10px;">
                                 <span class="skill-tag">HTML</span>
@@ -74,7 +72,7 @@
                                  <span class="skill-tag">SQL</span>
                             </div>
                             <br>
-                            <a href="https://github.com/Shaflesp/webPlayer" style="color: var(--cp-blue); text-decoration: none;">> ACCESS CODE</a>
+                            <a href="https://github.com/Shaflesp/webPlayer" style="color: var(--color3); text-decoration: none;">> ACCESS CODE</a>
                         </div>
                     </article>
 
@@ -83,14 +81,14 @@
                             <span style="color: #444;">[IMG_PREVIEW_02]</span>
                         </div>
                         <div style="padding: 15px;">
-                            <h3 style="color: var(--cp-yellow);">BOT DISCORD</h3>
+                            <h3 style="color: var(--color1);">BOT DISCORD</h3>
                             <p style="font-size: 0.9em;">Bot de modération automatique.</p>
                             <div style="margin-top: 10px;">
                                 <span class="skill-tag">PYTHON</span>
                                 <span class="skill-tag">API</span>
                             </div>
                             <br>
-                            <a href="#" style="color: var(--cp-blue); text-decoration: none;">> ACCESS CODE</a>
+                            <a href="#" style="color: var(--color3); text-decoration: none;">> ACCESS CODE</a>
                         </div>
                     </article>
 
