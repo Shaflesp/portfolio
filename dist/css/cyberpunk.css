@@ -87,6 +87,7 @@ h1 {
 .nav-link:hover {
     background: rgba(0, 240, 255, 0.15);
     color: #fff;
+    padding-left: 20px;
 }
 .nav-link.active {
     background: rgba(255, 0, 60, 0.1);

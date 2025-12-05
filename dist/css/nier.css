@@ -75,6 +75,22 @@ h2 {
     border-bottom: 1px double var(--color1);
     text-align: center;
     margin-bottom: 25px;
+    position: relative;
+}
+h2::after {
+    content: attr(data-angelic);
+    font-family: 'Angelic';
+    display: block;
+    font-size: 0.5em;
+
+    color: var(--color2);
+    opacity: 0.6;
+    margin-top: -5px;
+    line-height: 1;
+    padding-bottom: 5px;
+    letter-spacing: 3px;
+
+    text-transform: lowercase;
 }
 /* --- 3. NAVIGATION --- */
 .nav-link {
@@ -85,11 +101,25 @@ h2 {
     color: #555;
     text-align: center;
 }
+.nav-link::before {
+    font-family: 'Angelic';
+    position: absolute;
+    left: 10px;
+    opacity: 0;
+    color: var(--color2);
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+}
 .nav-link:hover {
     color: #000;
     letter-spacing: 2px;
     background: rgba(0,0,0,0.05);
     text-shadow: none;
+    padding-left: 25px;
+}
+.nav-link:hover::before {
+    opacity: 1;
+    left: 5px;
 }
 .nav-link.active {
     background: transparent;
@@ -101,6 +131,11 @@ h2 {
 .nav-link.active::after {
     content: '';
 }
+.nav-link:nth-child(1)::before { content: 'a'; }
+.nav-link:nth-child(2)::before { content: 'b'; }
+.nav-link:nth-child(3)::before { content: 'c'; }
+.nav-link:nth-child(4)::before { content: 'd'; }
+.nav-link:nth-child(5)::before { content: 'e'; }
 
 /* --- 4. PORTRAIT --- */
 .portrait-frame {
@@ -198,7 +233,7 @@ h2 {
 }
 .timeline-item::before {
     content: '❖';
-    left: -9px;
+    left: -8px;
     top: 0;
     font-size: 1.8rem;
     color: var(--color2);
@@ -207,7 +242,7 @@ h2 {
     line-height: 0.8;
 }
 .timeline-item::after {
-    content: "a b c d e g h i k l m n o p q r s t u v y z";
+    content: "a b c d e f g h i j k l m n o p q r s t u v w x y z";
 
     font-family: 'Angelic';
     font-size: 14px;

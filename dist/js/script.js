@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
        0. DICTIONNAIRE DE DONNÉES (TEXTES & LORE)
     ============================================================================= */
     const translations = {
-'cyberpunk': {
+        'cyberpunk': {
             // --- HEADER & NAVIGATION ---
             'nav-home': '01 // ACCUEIL',
             'nav-cursus': '02 // CURSUS',
@@ -77,6 +77,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     element.setAttribute('data-text', element.innerText);
                 }
             }
+        }
+        if (mode === 'nier') {
+            const titles = document.querySelectorAll('h2');
+                titles.forEach(h2 => {
+                    let text = h2.innerText;
+                    let cleanText = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                h2.setAttribute('data-angelic', cleanText);
+            });
+        } else {
+            document.querySelectorAll('h2').forEach(h2 => h2.setAttribute('data-angelic', ''));
         }
     }
 
