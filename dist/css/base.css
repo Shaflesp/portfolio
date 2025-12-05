@@ -73,6 +73,7 @@ h1 {
     margin: 10px 0;
     position: relative;
 }
+
 /* --- NAVIGATION MENU --- */
 .nav-menu {
     margin-top: 30px;
@@ -187,6 +188,7 @@ h1 {
 }
 .time-date { color: var(--color3); font-size: 0.85rem; display: block; }
 .place { font-style: italic; color: #777; font-size: 0.9rem; }
+
 /* --- JOBS --- */
 .job-item { margin-bottom: 30px; }
 .job-header {
@@ -273,7 +275,26 @@ footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: #444; p
         font-size: clamp(2rem, 5vw, 3.5rem);
         line-height: 1.2;
     }
-    .subtitle { min-height: 1.5em; font-size: 1rem; }
+    .subtitle {
+        margin: 0 auto;
+        min-height: 1.5em;
+        font-size: 1rem;
+    }
+    .typing-cursor::after {
+        content: '';
+        display: inline-block;
+        width: 2px;
+        height: 1.2em;
+        background-color: var(--color1); /* S'adapte au thème */
+        margin-left: 5px;
+        animation: cursorBlink 1s infinite;
+        vertical-align: bottom;
+    }
+
+    @keyframes cursorBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
 
     /* 5. CONTACT & CONTENU */
     .contact-info {

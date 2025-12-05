@@ -32,14 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         'nier': {
             // --- HEADER & NAVIGATION ---
-            // On utilise 'A', 'B', 'C' avec la font Angelic pour faire des puces runiques
             'nav-home': '<span class="angelic-icon">A</span> Rapport : Accueil',
             'nav-cursus': '<span class="angelic-icon">B</span> Chapitre 1 : Apprentissage',
             'nav-xp': '<span class="angelic-icon">C</span> Registre des Missions',
             'nav-portfolio': '<span class="angelic-icon">D</span> Armement & Créations',
 
             // --- STATUS BAR ---
-            'net-status': 'État : <span style="color: #4a4a4a">En cours d\'analyse</span>',
+            'net-status': 'YoRHa Unit: <span class="blink">ACTIVE</span>',
 
             // --- ACCUEIL (HOME) ---
             'job-title': 'Unité de Développement <span class="angelic-icon">z</span> Type S',
@@ -93,18 +92,32 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ---------------------------------------------------
        1. EFFET MACHINE A ECRIRE
     --------------------------------------------------- */
-    const subtitleText = "Étudiant en Informatique | Futur Dév Back-End";
-    const typingElement = document.getElementById('typing-text');
-    let charIndex = 0;
+const typingElement = document.getElementById('typing-text');
 
-    function typeWriter() {
-        if (typingElement && charIndex < subtitleText.length) {
-            typingElement.textContent += subtitleText.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeWriter, 40);
+    const subtitles = {
+        'cyberpunk': "Étudiant en Informatique | Futur Dév Back-End",
+        'nier': "« L'âme réside dans le code. »"
+    };
+    let typingTimeout;
+
+    function startTypewriter(text) {
+        if (typingTimeout) clearTimeout(typingTimeout);
+        if (typingElement) typingElement.textContent = "";
+
+        let charIndex = 0;
+        function type() {
+            if (charIndex < text.length) {
+                typingElement.textContent += text.charAt(charIndex);
+                charIndex++;
+                const randomSpeed = Math.random() * (100 - 30) + 40;
+                typingTimeout = setTimeout(type, randomSpeed);
+            }
         }
+
+        type();
     }
-    typeWriter();
+    const initTheme = localStorage.getItem('theme') || 'cyberpunk';
+    startTypewriter(subtitles[initTheme]);
 
 
     /* ---------------------------------------------------
@@ -138,11 +151,13 @@ document.addEventListener("DOMContentLoaded", () => {
             themeLink.href = 'css/nier.css';
             themeBtn.textContent = "[ OS: YoRHa ]";
             updateText('nier');
+            startTypewriter(subtitles['nier']);
             console.log("System: YoRHa units connected.");
         } else {
             themeLink.href = 'css/cyberpunk.css';
             themeBtn.textContent = "[ OS: ARASAKA ]";
             updateText('cyberpunk');
+            startTypewriter(subtitles['cyberpunk']);
             console.log("System: Arasaka protocol restored.");
         }
         document.querySelectorAll('[data-theme]').forEach(el => {
@@ -150,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         localStorage.setItem('theme', newTheme);
     }
-    const initTheme = localStorage.getItem('theme') || 'cyberpunk';
     switchTheme(initTheme);
 
     if (themeBtn) {

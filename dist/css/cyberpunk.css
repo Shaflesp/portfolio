@@ -125,7 +125,7 @@ h1 {
 
 /* --- 5. CARDS & SECTIONS --- */
 .card {
-        border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
 
     clip-path: polygon(
         0 0,
@@ -144,6 +144,7 @@ h1 {
 .card h2 {
     font-family: 'Orbitron'; color: var(--color3);
 }
+
 /* --- 6. DETAILS --- */
 .skill-tag {
     border: 1px solid var(--color1);
@@ -169,6 +170,7 @@ h1 {
 .timeline-desc {
     color: #aaa;
 }
+
 /* --- 7. JOBS --- */
 .job-header h3 {color: #fff;}
 .job-date {
