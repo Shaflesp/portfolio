@@ -74,6 +74,16 @@ h1 {
     position: relative;
 }
 
+.subtitle {
+    margin: 0 auto;
+    min-height: 1.5em;
+}
+.typing-cursor::after {
+    content: '';
+    display: inline-block;
+    margin-left: 5px;
+}
+
 /* --- NAVIGATION MENU --- */
 .nav-menu {
     margin-top: 30px;
@@ -274,26 +284,6 @@ footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: #444; p
     h1 {
         font-size: clamp(2rem, 5vw, 3.5rem);
         line-height: 1.2;
-    }
-    .subtitle {
-        margin: 0 auto;
-        min-height: 1.5em;
-        font-size: 1rem;
-    }
-    .typing-cursor::after {
-        content: '';
-        display: inline-block;
-        width: 2px;
-        height: 1.2em;
-        background-color: var(--color1); /* S'adapte au thème */
-        margin-left: 5px;
-        animation: cursorBlink 1s infinite;
-        vertical-align: bottom;
-    }
-
-    @keyframes cursorBlink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
     }
 
     /* 5. CONTACT & CONTENU */

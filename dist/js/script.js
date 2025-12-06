@@ -4,59 +4,92 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================================= */
     const translations = {
         'cyberpunk': {
-            // --- HEADER & NAVIGATION ---
-            'nav-home': '01 // ACCUEIL',
-            'nav-cursus': '02 // CURSUS',
-            'nav-xp': '03 // EXPÉRIENCE',
-            'nav-portfolio': '04 // RÉALISATIONS',
-            
-            // --- STATUS BAR (Haut de page) ---
+            // --- STATUS BAR ---
             'net-status': 'NET-STATUS: <span class="blink">ONLINE</span>',
-            
-            // --- ACCUEIL (HOME) ---
-            'job-title': 'NETRUNNER // FULLSTACK_DEV',
-            'intro-text': '// INITIALIZING USER PROFILE... <br> Connexion établie. Chargement des modules de compétence.',
-            
+
+            // --- NAVIGATION ---
+            'nav-home': '01 // SYSTEM_HOME',
+            'nav-cursus': '02 // LIFE PATH',
+            'nav-exp': '03 // MISSIONS_LOG',
+            'nav-portfolio': '04 // SHARDS',
+
+            // --- SIDEBAR ---
+            'contact-title': '// DATA_LINK',
+            'contact-loc': '[LOC]',
+            'contact-com': '[COM]',
+            'contact-git': '[GIT]',
+            'contact-tel': '[TEL]',
+
+            // --- INDEX (ACCUEIL) ---
+            'welcome-title': '// WELCOME_PROTOCOL',
+            'welcome-sub': '> Initializing user profile...',
+            'last-mission-title': 'LAST MISSION',
+            'current-project-title': 'CURRENT PROJECT',
+            'status-onGoing': 'Status: Executing...',
+            'status-workingOnIt': 'Status: Compiling...',
+
             // --- CURSUS ---
-            'cursus-title': '// EDUCATION_DATABANK',
-            'cursus-intro': 'Extraction des données académiques.',
-            'diploma-but': 'BUT INFORMATIQUE',
-            'desc-but': '> Spécialisation : Développement logiciel & Architecture.',
-            'diploma-bac': 'BACCALAURÉAT GENERAL',
-            'desc-bac': '> Option NSI & Mathématiques. Mention Bien.',
-            'diploma-brevet': 'BREVET DES COLLÈGES',
+            'education-title': '// EDUCATION_DATABANK',
+            'education-sub': 'Extraction of academic data and certifications...',
+            'option-span': '[OPTN]',
+            'bullet': '> ',
+
+            // --- EXPERIENCE ---
+            'exp-title': '// SYSTEM_BOOT_LOGS',
+            'exp-sub': '> Initializing Career Protocol...',
+            'exp-awaiting-title': '// AWAITING_FIRST_CONTRACT',
+            'exp-awaiting-text': 'Le matériel est prêt. Le logiciel est à jour.<br>En attente d\'une opportunité pour exécuter le code en production.',
+
+            // --- PORTFOLIO ---
+            'portfolio-title': '// COMPILED_PROJECTS',
+            'access-code': '> ACCESS CODE',
 
             // --- FOOTER ---
             'footer-text': 'END OF LINE_'
         },
-
         'nier': {
-            // --- HEADER & NAVIGATION ---
-            'nav-home': '<span class="angelic-icon">A</span> Rapport : Accueil',
-            'nav-cursus': '<span class="angelic-icon">B</span> Chapitre 1 : Apprentissage',
-            'nav-xp': '<span class="angelic-icon">C</span> Registre des Missions',
-            'nav-portfolio': '<span class="angelic-icon">D</span> Armement & Créations',
-
             // --- STATUS BAR ---
-            'net-status': 'YoRHa Unit: <span class="blink">ACTIVE</span>',
+            'net-status': 'Bunker Server: <span class="blink">CONNECTED</span>',
 
-            // --- ACCUEIL (HOME) ---
-            'job-title': 'Unité de Développement <span class="angelic-icon">z</span> Type S',
-            'intro-text': 'Chargement des données de l\'humanité... <br> « Tout ce qui vit est conçu pour finir. »',
+            // --- NAVIGATION ---
+            'nav-home': 'I. Origin',
+            'nav-cursus': 'II. Unit Data',
+            'nav-exp': 'III. Chronicles',
+            'nav-portfolio': 'IV. Archives',
+
+            // --- SIDEBAR ---
+            'contact-title': 'Correspondence',
+            'contact-loc': 'Region',
+            'contact-com': 'Letter.',
+            'contact-git': 'Library',
+            'contact-tel': 'Voice',
+
+            // --- INDEX (ACCUEIL) ---
+            'welcome-title': 'ECHOES OF HUMANITY',
+            'welcome-sub': 'Commencing Log Decryption...',
+            'last-mission-title': 'Previous Tale',
+            'current-project-title': 'Current Journey',
+            'status-onGoing': 'Story: Unfolding...',
+            'status-workingOnIt': 'Story: Writing...',
 
             // --- CURSUS ---
-            'cursus-title': '<span class="angelic-icon">m</span> Chapitre 1 : Apprentissage',
-            'cursus-intro': 'Analyse des archives mémorielles du sujet.',
-            
-            // On garde le nom du diplôme lisible, mais la description est "Roleplay"
-            'diploma-but': 'Certification : BUT Informatique',
-            'desc-but': 'Acquisition des langages de l\'Ancien Monde (Java, SQL) pour la préservation des données.',
-            'diploma-bac': 'Certificat de Majorité',
-            'desc-bac': 'Preuve de capacité logique et mathématique.',
-            'diploma-brevet': 'Initialisation du Cycle',
+            'education-title': 'Memory Fragments',
+            'education-sub': 'Retracing the path traveled...',
+            'option-span': 'Optn.',
+            'bullet': ' ',
+
+            // --- EXPERIENCE ---
+            'exp-title': 'Service Records',
+            'exp-sub': 'Accessing timeline data...',
+            'exp-awaiting-title': 'Assignment: Pending',
+            'exp-awaiting-text': 'Ce corps a fini d\'apprendre. Il est temps de changer de forme.<br>En quête d\'une nouvelle porte à ouvrir pour débuter la prochaine existence.',
+
+            // --- PORTFOLIO ---
+            'portfolio-title': 'Archives',
+            'access-code': '• Examine',
 
             // --- FOOTER ---
-            'footer-text': 'Glory to Mankind.'
+            'footer-text': 'End of Report'
         }
     }
 
@@ -69,13 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!currentData) return;
 
         for (const [key, value] of Object.entries(currentData)) {
-            const element = document.querySelector(`[data-id="${key}"]`);
-            if (element) {
+            const elements = document.querySelectorAll(`[data-id="${key}"]`);
+
+            elements.forEach(element => {
                 element.innerHTML = value;
                 if (element.classList.contains('glitch')) {
                     element.setAttribute('data-text', element.innerText);
                 }
-            }
+            });
         }
         if (mode === 'nier') {
             const titles = document.querySelectorAll('h2');
@@ -94,9 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
     --------------------------------------------------- */
 const typingElement = document.getElementById('typing-text');
 
+    //"Étudiant en Informatique | Futur Dév Back-End"
     const subtitles = {
-        'cyberpunk': "Étudiant en Informatique | Futur Dév Back-End",
-        'nier': "« L'âme réside dans le code. »"
+        'cyberpunk': "Netrunner Initiate | Daemon Architect",
+        'nier': "Unité en apprentissage | Architecte de l'Invisible"
     };
     let typingTimeout;
 
@@ -109,7 +144,7 @@ const typingElement = document.getElementById('typing-text');
             if (charIndex < text.length) {
                 typingElement.textContent += text.charAt(charIndex);
                 charIndex++;
-                const randomSpeed = Math.random() * (100 - 30) + 40;
+                const randomSpeed = Math.random() * (100 - 30) + 10;
                 typingTimeout = setTimeout(type, randomSpeed);
             }
         }

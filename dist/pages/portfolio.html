@@ -15,7 +15,7 @@
         <header>
             <div class="header-content">
                 <div class="top-bar">
-                    <span class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+                    <span data-id="net-status" class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
                     <button id="theme-toggle" class="theme-btn">[ OS: ARASAKA ]</button>
                 </div>
                 <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
@@ -35,26 +35,26 @@
                 </div>
 
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">01 // ACCUEIL</a>
-                    <a href="pages/cursus.html" class="nav-link">02 // CURSUS</a>
-                    <a href="pages/experience.html" class="nav-link">03 // EXPÉRIENCE</a>
-                    <a href="pages/portfolio.html" class="nav-link active">04 // RÉALISATIONS</a>
+                    <a data-id="nav-home" href="index.html" class="nav-link">ACCUEIL</a>
+                    <a data-id="nav-cursus" href="pages/cursus.html" class="nav-link">CURSUS</a>
+                    <a data-id="nav-exp" href="pages/experience.html" class="nav-link">EXPÉRIENCE</a>
+                    <a data-id="nav-portfolio" href="pages/portfolio.html" class="nav-link active">RÉALISATIONS</a>
                 </nav>
 
                 <section class="card" style="margin-top: 20px;">
-                    <h2>// DATA_LINK</h2>
+                    <h2 data-id="contact-title">CONTACT</h2>
                     <div class="contact-info">
-                        <p><span>[LOC]</span> Douai, FR</p>
-                        <p><span>[MAIL]</span><a href="mailto:remy.martin0106@outlook.com" title="remy.martin0106@outlook.com">remy.martin0106</a></p>
-                        <p><span>[GIT]</span><a href="https://github.com/Shaflesp" target="_blank">github.com/Shaflesp</a></p>
-                        <p><span>[TEL]</span> 06-14-41-54-14</p>
+                        <p><span data-id="contact-loc">[LOC]</span> Douai, FR</p>
+                        <p><span data-id="contact-com">[COM]</span><a href="mailto:remy.martin0106@outlook.com" title="remy.martin0106@outlook.com">remy.martin0106</a></p>
+                        <p><span data-id="contact-git">[GIT]</span><a href="https://github.com/Shaflesp" target="_blank">github.com/Shaflesp</a></p>
+                        <p><span data-id="contact-tel">[TEL]</span> 06-14-41-54-14</p>
                     </div>
                 </section>
             </aside>
             <main>
                 <section class="card">
-                    <h2>// COMPILED_PROJECTS</h2>
-                    <p>Accès aux archives des projets. Cliquez pour voir le code source.</p>
+                    <h2 data-id="portfolio-title">PROJECTS</h2>
+                    <p style="text-align: center">Accès aux archives des projets. Cliquez pour voir le code source.</p>
                 </section>
 
                 <div class="project-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -69,10 +69,10 @@
                                 <span class="skill-tag">CSS</span>
                                 <span class="skill-tag">JS</span>
                                 <span class="skill-tag">JAVA</span>
-                                 <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">SQL</span>
                             </div>
                             <br>
-                            <a href="https://github.com/Shaflesp/webPlayer" style="color: var(--color3); text-decoration: none;">> ACCESS CODE</a>
+                            <a data-id="access-code" href="https://github.com/Shaflesp/webPlayer" style="color: var(--color3); text-decoration: none;">> ACCESS CODE</a>
                         </div>
                     </article>
 
@@ -88,7 +88,7 @@
                                 <span class="skill-tag">API</span>
                             </div>
                             <br>
-                            <a href="#" style="color: var(--color3); text-decoration: none;">> ACCESS CODE</a>
+                            <a data-id="access-code" href="#" style="color: var(--color3); text-decoration: none;">> ACCESS CODE</a>
                         </div>
                     </article>
 
@@ -96,7 +96,7 @@
             </main>
             </div>
 
-        <footer>END OF LINE_</footer>
+        <footer data-id="footer-text">Footer</footer>
     </div>
     <script src="js/script.js"></script>
 </body>

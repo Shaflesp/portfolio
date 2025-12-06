@@ -15,7 +15,7 @@
         <header>
             <div class="header-content">
                 <div class="top-bar">
-                    <span class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+                    <span class="wired-status" data-id="net-status">Net-Status: <span class="blink">ONLINE</span></span>
                     <button id="theme-toggle" class="theme-btn">[ OS: ARASAKA ]</button>
                 </div>
                 <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
@@ -42,12 +42,12 @@
                 </nav>
 
                 <section class="card" style="margin-top: 20px;">
-                    <h2>// DATA_LINK</h2>
+                    <h2 data-id="contact-title">// DATA_LINK</h2>
                     <div class="contact-info">
-                        <p><span>[LOC]</span> Douai, FR</p>
-                        <p><span>[MAIL]</span><a href="mailto:remy.martin0106@outlook.com" title="remy.martin0106@outlook.com">remy.martin0106</a></p>
-                        <p><span>[GIT]</span><a href="https://github.com/Shaflesp" target="_blank">github.com/Shaflesp</a></p>
-                        <p><span>[TEL]</span>06-14-41-54-14</p>
+                        <p><span data-id="contact-loc">[LOC]</span> Douai, FR</p>
+                        <p><span data-id="contact-com">[COM]</span><a href="mailto:remy.martin0106@outlook.com" title="remy.martin0106@outlook.com">remy.martin0106</a></p>
+                        <p><span data-id="contact-git">[GIT]</span><a href="https://github.com/Shaflesp" target="_blank">github.com/Shaflesp</a></p>
+                        <p><span data-id="contact-tel">[TEL]</span>06-14-41-54-14</p>
                     </div>
                 </section>
             </aside>
@@ -94,8 +94,8 @@
 <!--            </main>-->
             <main>
                 <section class="card red-glow">
-                    <h2>// SYSTEM_BOOT_LOGS</h2>
-                    <p class="highlight-text">> Initializing Career Protocol...</p>
+                    <h2 data-id="exp-title">EXPERIENCE</h2>
+                    <p data-id="exp-sub" class="highlight-text">> Initializing Career Protocol...</p>
                     <p>> User status: <span style="color:var(--color1)">READY_FOR_DEPLOYMENT</span></p>
                     <p>Actuellement en recherche de ma première mission (Stage / Alternance). Système optimisé pour l'apprentissage rapide et l'adaptation aux nouvelles technologies.</p>
                 </section>
@@ -137,8 +137,8 @@
                 </section>
 
                 <section class="card" style="border: 1px dashed var(--color1); background: rgba(252, 238, 10, 0.02);">
-                    <h3 style="color: var(--color1); text-align: center;">// AWAITING_FIRST_CONTRACT</h3>
-                    <p style="text-align: center; margin-top: 10px; font-size: 0.9em;">
+                    <h3 data-id="exp-awaiting-title" style="color: var(--color1); text-align: center;">AWAITING</h3>
+                    <p data-id="exp-awaiting-text" style="text-align: center; margin-top: 10px; font-size: 0.9em;">
                         Le matériel est prêt. Le logiciel est à jour.<br>
                         En attente d'une opportunité pour exécuter le code en production.
                     </p>
@@ -146,7 +146,7 @@
             </main>
             </div>
 
-        <footer>END OF LINE_</footer>
+        <footer data-id="footer-text">Footer</footer>
     </div>
     <script src="js/script.js"></script>
 </body>
