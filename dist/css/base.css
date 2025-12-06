@@ -9,6 +9,12 @@ body {
     animation: pageLoad 0.5s ease-out forwards;
     opacity: 0;
 }
+body::before, body::after {
+    position: fixed;
+    pointer-events: none;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
 
 @keyframes pageLoad {
     0% { opacity: 0; transform: translateY(10px); filter: blur(2px); }
@@ -106,7 +112,6 @@ h1 {
 }
 .nav-link.active::after {
     position: absolute;
-    right: 15px;
 }
 
 /* --- PORTRAIT --- */
@@ -136,7 +141,6 @@ h1 {
 .card::before {
     content: '';
     position: absolute;
-    background: var(--color1);
     z-index: 5;
 }
 .card h2 {
@@ -145,7 +149,7 @@ h1 {
 }
 
 .red-glow { border-color: var(--color2); }
-.red-glow h2 { color: var(--color2); border-color: var(--color2); }
+.red-glow h2 {border-color: var(--color2); }
 
 /* --- DETAILS --- */
 .contact-info p {
@@ -190,7 +194,6 @@ h1 {
 .timeline-item h3 {margin: 2px 0; }
 .timeline-item::before {
     position: absolute;
-    width: 10px; height: 10px;
 }
 .timeline-desc {
     margin-top: 10px;
@@ -229,10 +232,21 @@ h1 {
 .project-card h3 { color: var(--color1); font-size: 1rem; margin-bottom: 5px; }
 
 /* --- FOOTER --- */
-footer { text-align: center; margin-top: 50px; font-size: 0.8rem; color: #444; padding-bottom: 20px;}
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    padding-bottom: 20px;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
 
 
 /* --- RESPONSIVE --- */
+@media screen and (max-width: 1400px) {
+    body::before, body::after { display: none; }
+}
+
 @media screen and (max-width: 900px) {
 
     /* 1. GRILLE & STRUCTURE */
