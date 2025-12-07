@@ -7,19 +7,26 @@
     <base href="/">
 
      <link rel="stylesheet" href="css/base.css">
-     <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
-            const cssFile = savedTheme === 'nier' ? 'css/nier.css' : 'css/cyberpunk.css';
+<script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
 
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = cssFile;
-            link.id = 'theme-css';
-            document.head.appendChild(link);
-            document.documentElement.classList.add('preload');
-        })();
-    </script>
+        const cyberpunkLink = document.createElement('link');
+        cyberpunkLink.rel = savedTheme === 'cyberpunk' ? 'stylesheet' : 'alternate stylesheet';
+        cyberpunkLink.href = 'css/cyberpunk.css';
+        cyberpunkLink.id = 'theme-cyberpunk';
+
+        const nierLink = document.createElement('link');
+        nierLink.rel = savedTheme === 'nier' ? 'stylesheet' : 'alternate stylesheet';
+        nierLink.href = 'css/nier.css';
+        nierLink.id = 'theme-nier';
+
+        document.head.appendChild(cyberpunkLink);
+        document.head.appendChild(nierLink);
+
+        document.documentElement.classList.add('preload');
+    })();
+</script>
 </head>
 <body>
     <div class="scanlines" data-theme="cyberpunk"></div>
@@ -47,10 +54,10 @@
                 </div>
 
                 <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">ACCUEIL</a>
-                    <a href="pages/cursus.html" class="nav-link">CURSUS</a>
-                    <a href="pages/experience.html" class="nav-link active">EXPÉRIENCE</a>
-                    <a href="pages/portfolio.html" class="nav-link">RÉALISATIONS</a>
+                    <a data-id="nav-home" href="index.html" class="nav-link">ACCUEIL</a>
+                    <a data-id="nav-cursus" href="pages/cursus.html" class="nav-link">CURSUS</a>
+                    <a data-id="nav-exp" href="pages/experience.html" class="nav-link active active">EXPÉRIENCE</a>
+                    <a data-id="nav-portfolio" href="pages/portfolio.html" class="nav-link">RÉALISATIONS</a>
                 </nav>
 
                 <section class="card" style="margin-top: 20px;">

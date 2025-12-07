@@ -1,106 +1,71 @@
 document.addEventListener("DOMContentLoaded", () => {
     const initTheme = localStorage.getItem('theme') || 'cyberpunk';
     const themeBtn = document.getElementById('theme-toggle');
-    const themeLink = document.getElementById('theme-css');
 
     /* =============================================================================
        0. DICTIONNAIRE DE DONNÉES (TEXTES & LORE)
     ============================================================================= */
     const translations = {
         'cyberpunk': {
-            // --- STATUS BAR ---
             'net-status': 'NET-STATUS: <span class="blink">ONLINE</span>',
-
-            // --- NAVIGATION ---
             'nav-home': '01 // SYSTEM_HOME',
             'nav-cursus': '02 // LIFE PATH',
             'nav-exp': '03 // MISSIONS_LOG',
             'nav-portfolio': '04 // SHARDS',
-
-            // --- SIDEBAR ---
             'contact-title': '// DATA_LINK',
             'contact-loc': '[LOC]',
             'contact-com': '[COM]',
             'contact-git': '[GIT]',
             'contact-tel': '[TEL]',
-
-            // --- INDEX (ACCUEIL) ---
             'welcome-title': '// WELCOME_PROTOCOL',
             'welcome-sub': '> Initializing user profile...',
             'last-mission-title': 'LAST MISSION',
             'current-project-title': 'CURRENT PROJECT',
             'status-onGoing': 'Status: Executing...',
             'status-workingOnIt': 'Status: Compiling...',
-
-            // --- CURSUS ---
             'education-title': '// EDUCATION_DATABANK',
             'education-sub': 'Extraction of academic data and certifications...',
             'option-span': '[OPTN]',
             'bullet': '> ',
-
-            // --- EXPERIENCE ---
             'exp-title': '// SYSTEM_BOOT_LOGS',
             'exp-sub': '> Initializing Career Protocol...',
             'exp-awaiting-title': '// AWAITING_FIRST_CONTRACT',
             'exp-awaiting-text': 'Le matériel est prêt. Le logiciel est à jour.<br>En attente d\'une opportunité pour exécuter le code en production.',
-
-            // --- PORTFOLIO ---
             'portfolio-title': '// COMPILED_PROJECTS',
             'access-code': '> ACCESS CODE',
-
-            // --- FOOTER ---
             'footer-text': 'END OF LINE_'
         },
         'nier': {
-            // --- STATUS BAR ---
             'net-status': 'Bunker Server: <span class="blink">CONNECTED</span>',
-
-            // --- NAVIGATION ---
             'nav-home': 'I. Origin',
             'nav-cursus': 'II. Unit Data',
             'nav-exp': 'III. Chronicles',
             'nav-portfolio': 'IV. Archives',
-
-            // --- SIDEBAR ---
             'contact-title': 'Correspondence',
             'contact-loc': 'Region',
             'contact-com': 'Letter.',
             'contact-git': 'Library',
             'contact-tel': 'Voice',
-
-            // --- INDEX (ACCUEIL) ---
             'welcome-title': 'ECHOES OF HUMANITY',
             'welcome-sub': 'Commencing Log Decryption...',
             'last-mission-title': 'Previous Tale',
             'current-project-title': 'Current Journey',
             'status-onGoing': 'Story: Unfolding...',
             'status-workingOnIt': 'Story: Writing...',
-
-            // --- CURSUS ---
             'education-title': 'Memory Fragments',
             'education-sub': 'Retracing the path traveled...',
             'option-span': 'Optn.',
             'bullet': ' ',
-
-            // --- EXPERIENCE ---
             'exp-title': 'Service Records',
             'exp-sub': 'Accessing timeline data...',
             'exp-awaiting-title': 'Assignment: Pending',
             'exp-awaiting-text': 'Ce corps a fini d\'apprendre. Il est temps de changer de forme.<br>En quête d\'une nouvelle porte à ouvrir pour débuter la prochaine existence.',
-
-            // --- PORTFOLIO ---
             'portfolio-title': 'Archives',
             'access-code': '• Examine',
-
-            // --- FOOTER ---
             'footer-text': 'End of Report'
         }
     }
 
-    /**
-     * Fonction qui met à jour le texte de la page en fonction du mode
-     * @param {string} mode - 'cyberpunk' ou 'nier'
-     */
     function updateText(mode) {
         const currentData = translations[mode];
         if (!currentData) return;
@@ -117,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (mode === 'nier') {
             const titles = document.querySelectorAll('h2');
-                titles.forEach(h2 => {
-                    let text = h2.innerText;
-                    let cleanText = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            titles.forEach(h2 => {
+                let text = h2.innerText;
+                let cleanText = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 h2.setAttribute('data-angelic', cleanText);
             });
         } else {
@@ -132,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     --------------------------------------------------- */
     const typingElement = document.getElementById('typing-text');
 
-    //"Étudiant en Informatique | Futur Dév Back-End"
     const subtitles = {
         'cyberpunk': "Netrunner Initiate | Daemon Architect",
         'nier': "Unité en apprentissage | Architecte de l'Invisible"
@@ -158,11 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startTypewriter(subtitles[initTheme]);
 
-
     /* ---------------------------------------------------
-       2. NAVIGATION AUTO (Active Link) - CORRIGÉ
+       2. NAVIGATION AUTO (Active Link)
     --------------------------------------------------- */
-
     const path = window.location.pathname;
     let pageName = path.split("/").pop().replace('.html', '');
 
@@ -180,35 +142,74 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ---------------------------------------------------
-       3. THEME SWITCHER (Cyberpunk <-> NieR)
+       3. THEME SWITCHER
     --------------------------------------------------- */
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 9999;
+    `;
+    document.body.appendChild(overlay);
 
-    function switchTheme(newTheme) {
-        if (newTheme === 'nier') {
-            themeLink.href = 'css/nier.css';
-            themeBtn.textContent = "[ OS: YoRHa ]";
-            updateText('nier');
-            startTypewriter(subtitles['nier']);
-            console.log("System: YoRHa units connected.");
+    function switchTheme(newTheme, withTransition = false) {
+        const cyberpunkLink = document.getElementById('theme-cyberpunk');
+        const nierLink = document.getElementById('theme-nier');
+
+        const applyTheme = () => {
+            if (newTheme === 'nier') {
+                if (cyberpunkLink) cyberpunkLink.rel = 'alternate stylesheet';
+                if (nierLink) nierLink.rel = 'stylesheet';
+                themeBtn.textContent = "[ OS: YoRHa ]";
+                updateText('nier');
+                startTypewriter(subtitles['nier']);
+                console.log("System: YoRHa units connected.");
+            } else {
+                if (cyberpunkLink) cyberpunkLink.rel = 'stylesheet';
+                if (nierLink) nierLink.rel = 'alternate stylesheet';
+                themeBtn.textContent = "[ OS: ARASAKA ]";
+                updateText('cyberpunk');
+                startTypewriter(subtitles['cyberpunk']);
+                console.log("System: Arasaka protocol restored.");
+            }
+
+            document.querySelectorAll('[data-theme]').forEach(el => {
+                el.style.display = el.dataset.theme === newTheme ? '' : 'none';
+            });
+            localStorage.setItem('theme', newTheme);
+        };
+
+        if (withTransition) {
+            overlay.style.pointerEvents = 'all';
+            overlay.style.opacity = '1';
+
+            setTimeout(() => {
+                applyTheme();
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        overlay.style.pointerEvents = 'none';
+                    }, 200);
+                }, 25);
+            }, 200);
         } else {
-            themeLink.href = 'css/cyberpunk.css';
-            themeBtn.textContent = "[ OS: ARASAKA ]";
-            updateText('cyberpunk');
-            startTypewriter(subtitles['cyberpunk']);
-            console.log("System: Arasaka protocol restored.");
+            applyTheme();
         }
-        document.querySelectorAll('[data-theme]').forEach(el => {
-            el.style.display = el.dataset.theme === newTheme ? '' : 'none';
-        });
-        localStorage.setItem('theme', newTheme);
     }
-    switchTheme(initTheme);
+    switchTheme(initTheme, false);
 
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
             const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
             const newTheme = currentTheme === 'cyberpunk' ? 'nier' : 'cyberpunk';
-            switchTheme(newTheme);
+            switchTheme(newTheme, true);
         });
     }
 
@@ -224,7 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(() => {
             const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
             if (currentTheme === 'cyberpunk' && Math.random() > 0.95) {
-
                 title.style.textShadow = `4px 0 ${cyberpunkRed}, -4px 0 ${cyberpunkBlue}`;
                 title.style.transform = "skewX(-10deg)";
 

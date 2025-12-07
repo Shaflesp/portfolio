@@ -7,19 +7,26 @@
     <base href="/">
 
      <link rel="stylesheet" href="css/base.css">
-     <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
-            const cssFile = savedTheme === 'nier' ? 'css/nier.css' : 'css/cyberpunk.css';
+<script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
 
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = cssFile;
-            link.id = 'theme-css';
-            document.head.appendChild(link);
-            document.documentElement.classList.add('preload');
-        })();
-    </script>
+        const cyberpunkLink = document.createElement('link');
+        cyberpunkLink.rel = savedTheme === 'cyberpunk' ? 'stylesheet' : 'alternate stylesheet';
+        cyberpunkLink.href = 'css/cyberpunk.css';
+        cyberpunkLink.id = 'theme-cyberpunk';
+
+        const nierLink = document.createElement('link');
+        nierLink.rel = savedTheme === 'nier' ? 'stylesheet' : 'alternate stylesheet';
+        nierLink.href = 'css/nier.css';
+        nierLink.id = 'theme-nier';
+
+        document.head.appendChild(cyberpunkLink);
+        document.head.appendChild(nierLink);
+
+        document.documentElement.classList.add('preload');
+    })();
+</script>
 </head>
 <body>
     <div class="scanlines" data-theme="cyberpunk"></div>
