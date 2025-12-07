@@ -72,10 +72,7 @@ function initializeApp() {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
 
-                // Ne pas intercepter les liens externes ou les ancres
-                if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:')) {
-                    return;
-                }
+                if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:')) {return;}
 
                 e.preventDefault();
                 const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
@@ -86,7 +83,6 @@ function initializeApp() {
                 pageOverlay.style.pointerEvents = 'all';
                 pageOverlay.style.opacity = '1';
 
-                // Attendre la fin de l'animation avant de changer de page
                 setTimeout(() => {
                     window.location.href = href;
                 }, 200);
@@ -133,6 +129,7 @@ function initializeApp() {
             'bullet': '> ',
             'exp-title': '// SYSTEM_BOOT_LOGS',
             'exp-sub': '> Initializing Career Protocol...',
+            'exp-status':'User status: <span style="color:var(--color1)">READY_FOR_DEPLOYMENT</span></p>',
             'exp-awaiting-title': '// AWAITING_FIRST_CONTRACT',
             'exp-awaiting-text': 'Le matériel est prêt. Le logiciel est à jour.<br>En attente d\'une opportunité pour exécuter le code en production.',
             'portfolio-title': '// COMPILED_PROJECTS',
@@ -162,6 +159,7 @@ function initializeApp() {
             'bullet': ' ',
             'exp-title': 'Service Records',
             'exp-sub': 'Accessing timeline data...',
+            'exp-status':'Unit Condition: <span style="color:var(--color2)">AWAITING_ORDERS</span></p>',
             'exp-awaiting-title': 'Assignment: Pending',
             'exp-awaiting-text': 'Ce corps a fini d\'apprendre. Il est temps de changer de forme.<br>En quête d\'une nouvelle porte à ouvrir pour débuter la prochaine existence.',
             'portfolio-title': 'Archives',
