@@ -240,8 +240,9 @@ h2 {
     opacity: 0.5;
 }
 
-.red-glow h2 {
+h2.red-glow {
     box-shadow: 0 10px 10px -10px rgb(124, 27, 27);
+    border-bottom: 2px dotted var(--color2);
 }
 
 /* --- 6. DETAILS --- */
