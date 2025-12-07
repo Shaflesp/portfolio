@@ -241,7 +241,6 @@ h2 {
 }
 
 .red-glow h2 {
-    color: var(--color2);
     box-shadow: 0 10px 10px -10px rgb(124, 27, 27);
 }
 
@@ -297,6 +296,11 @@ h2 {
 .job-details {color: #aaa;}
 .company {text-transform: uppercase; letter-spacing: 1px; }
 
+/* --- 8. PROJECTS --- */
+.project-card>div>span{
+    font-family: 'Share Tech Mono', monospace;
+}
+
 footer {
     color: #666;
     text-transform: uppercase;
@@ -309,7 +313,7 @@ footer {
     .portrait-frame {
         margin: 0 auto 25px auto;
     }
-.nav-link {
+    .nav-link {
         clip-path: none;
         border-left: none;
         border-bottom: 1px solid #333;

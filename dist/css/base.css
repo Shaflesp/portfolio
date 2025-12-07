@@ -148,8 +148,8 @@ h1 {
     padding-bottom: 5px; margin-bottom: 20px;
 }
 
-.red-glow { border-color: var(--color2); }
-.red-glow h2 {border-color: var(--color2); }
+.red-glow {color: var(--color2); border-color: var(--color2); }
+.red-glow h2 {color: var(--color2);border-color: var(--color2); }
 
 /* --- DETAILS --- */
 .contact-info p {
@@ -228,6 +228,20 @@ h1 {
     background: rgba(255,255,255,0.03); border: 1px solid #333;
     padding: 15px; transition: 0.3s;
 }
+.project-card img{
+    width: 100%; height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #333;
+}
+.project-card>div>span{
+    height: 150px;
+    width: 100%;
+    background: #222;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .project-card:hover { border-color: var(--color1); transform: translateY(-3px); }
 .project-card h3 { color: var(--color1); font-size: 1rem; margin-bottom: 5px; }
 
@@ -244,7 +258,7 @@ footer {
 
 /* --- RESPONSIVE --- */
 @media screen and (max-width: 1400px) {
-    body::before, body::after { display: none; }
+    body::before, body::after { display: none !important; }
 }
 
 @media screen and (max-width: 900px) {

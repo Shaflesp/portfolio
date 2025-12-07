@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ---------------------------------------------------
        1. EFFET MACHINE A ECRIRE
     --------------------------------------------------- */
-const typingElement = document.getElementById('typing-text');
+    const typingElement = document.getElementById('typing-text');
 
     //"Étudiant en Informatique | Futur Dév Back-End"
     const subtitles = {

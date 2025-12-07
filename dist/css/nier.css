@@ -260,8 +260,6 @@ h2::after {
 .card::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
 .card::after { bottom: 4px; right: 4px; border-left: none; border-top: none; }
 
-.red-glow{color: var(--color2);}
-
 /* --- 6. DETAILS --- */
 .skill-tag {
     font-family: 'Cinzel', serif;
@@ -350,6 +348,12 @@ h2::after {
 .job-details {
     color: var(--color4);
 }
+
+/* --- 8. PROJECTS --- */
+.project-card>div>span{
+    font-family: 'Cormorant Garamond', monospace;
+}
+
 footer {color: #444;}
 
 /* --- RESPONSIVE NIER --- */
