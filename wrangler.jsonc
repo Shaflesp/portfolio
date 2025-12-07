@@ -7,8 +7,8 @@
   },
   "routes": [
     {
-      "pattern": "nihileaf.dev/*", // Remplacez par votre domaine
-      "zone_id": "b50826f8ace489c3988ab4414746dec0" // C'est un ID unique que Cloudflare vous a donné
+      "pattern": "nihileaf.dev/*",
+      "zone_id": "b50826f8ace489c3988ab4414746dec0"
     }
   ]
 }
