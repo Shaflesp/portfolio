@@ -7,7 +7,19 @@
     <base href="/">
 
      <link rel="stylesheet" href="css/base.css">
-     <link rel="stylesheet" href="css/cyberpunk.css" id="theme-css">
+     <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
+            const cssFile = savedTheme === 'nier' ? 'css/nier.css' : 'css/cyberpunk.css';
+
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = cssFile;
+            link.id = 'theme-css';
+            document.head.appendChild(link);
+            document.documentElement.classList.add('preload');
+        })();
+    </script>
 </head>
 <body>
     <div class="scanlines" data-theme="cyberpunk"></div>

@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const initTheme = localStorage.getItem('theme') || 'cyberpunk';
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeLink = document.getElementById('theme-css');
+
     /* =============================================================================
        0. DICTIONNAIRE DE DONNÉES (TEXTES & LORE)
     ============================================================================= */
@@ -151,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         type();
     }
-    const initTheme = localStorage.getItem('theme') || 'cyberpunk';
+
     startTypewriter(subtitles[initTheme]);
 
 
@@ -178,8 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ---------------------------------------------------
        3. THEME SWITCHER (Cyberpunk <-> NieR)
     --------------------------------------------------- */
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeLink = document.getElementById('theme-css');
 
     function switchTheme(newTheme) {
         if (newTheme === 'nier') {
@@ -235,4 +237,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log("%c SYSTEM READY ", "background: #000; color: #00f0ff; font-size: 15px; border: 1px solid #00f0ff; padding: 5px;");
+
+    /* ---------------------------------------------------
+       INITIALISATION
+    --------------------------------------------------- */
+    updateText(initTheme);
+    startTypewriter(subtitles[initTheme]);
+
+    if(themeBtn) {
+        themeBtn.textContent = initTheme === 'nier' ? "[ OS: YoRHa ]" : "[ OS: ARASAKA ]";
+    }
+
+    document.querySelectorAll('[data-theme]').forEach(el => {
+        el.style.display = el.dataset.theme === initTheme ? '' : 'none';
+    });
+
+    requestAnimationFrame(() => {
+        document.documentElement.classList.remove('preload');
+    });
 });

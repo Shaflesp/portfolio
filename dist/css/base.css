@@ -1,3 +1,14 @@
+html.preload body {
+    visibility: hidden;
+    opacity: 0;
+    transition: none !important;
+}
+
+html body {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* --- VARIABLES & BASE --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
