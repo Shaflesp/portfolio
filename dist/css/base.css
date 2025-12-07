@@ -38,14 +38,19 @@ body {
     color: var(--text-main);
     line-height: 1.5;
     overflow-x: hidden;
-    animation: pageLoad 0.5s ease-out forwards;
-    opacity: 0;
 }
 body::before, body::after {
     position: fixed;
     pointer-events: none;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    animation: fadeInOnly 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInOnly {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @keyframes pageLoad {
@@ -60,6 +65,9 @@ body::before, body::after {
     padding: 20px;
     position: relative;
     z-index: 10;
+    animation: pageLoad 0.5s ease-out forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
 }
 .grid-system {
     display: grid;
