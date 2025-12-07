@@ -62,7 +62,7 @@ function initializeApp() {
         justify-content: center;
         font-family: monospace;
         font-size: 1.5rem;
-        color: #00f0ff;
+        color: #eeeeee;
     `;
     document.body.appendChild(pageOverlay);
     function setupPageTransitions() {
@@ -131,7 +131,7 @@ function initializeApp() {
             'exp-sub': '> Initializing Career Protocol...',
             'exp-status':'User status: <span style="color:var(--color1)">READY_FOR_DEPLOYMENT</span></p>',
             'exp-awaiting-title': '// AWAITING_FIRST_CONTRACT',
-            'exp-awaiting-text': 'Le matériel est prêt. Le logiciel est à jour.<br>En attente d\'une opportunité pour exécuter le code en production.',
+            'exp-awaiting-text': 'Implants : Overclocked. Soft : Dernier patch installé.<br>En recherche d\'un Fixer pour valider le premier Gig.',
             'portfolio-title': '// COMPILED_PROJECTS',
             'access-code': '> ACCESS CODE',
             'footer-text': 'END OF LINE_'
