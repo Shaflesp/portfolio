@@ -1,4 +1,4 @@
-/* Amélioration du système de préchargement */
+/* Système de préchargement */
 html.preload * {
     animation-duration: 0s !important;
     transition-duration: 0s !important;
@@ -12,12 +12,11 @@ html.preload body {
 html body {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.3s ease;
 }
 
-/* Loading indicator optionnel */
+/* Loading indicator */
 html.preload::after {
-    content: 'LOADING...';
+    content: 'LOADING SYSTEM...';
     position: fixed;
     top: 50%;
     left: 50%;
@@ -25,8 +24,10 @@ html.preload::after {
     color: #00f0ff;
     font-family: monospace;
     font-size: 1.5rem;
+    font-weight: bold;
     z-index: 99999;
     animation: blink 1s infinite;
+    text-shadow: 0 0 10px #00f0ff;
 }
 
 /* --- VARIABLES & BASE --- */

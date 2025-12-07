@@ -1,4 +1,4 @@
-// Attendre que les CSS soient chargés avant de démarrer
+//Préchargement
 let cssLoaded = { cyberpunk: false, nier: false };
 let initStarted = false;
 
@@ -18,8 +18,6 @@ function checkCSSLoaded() {
             tryInit();
         };
     }
-    
-    // Fallback si les CSS sont déjà en cache
     setTimeout(() => {
         if (!initStarted) {
             cssLoaded = { cyberpunk: true, nier: true };
@@ -44,7 +42,72 @@ function initializeApp() {
     const themeBtn = document.getElementById('theme-toggle');
 
     /* =============================================================================
-       0. DICTIONNAIRE DE DONNÉES (TEXTES & LORE)
+       0. TRANSITIONS ENTRE PAGES
+    ============================================================================= */
+    const pageOverlay = document.createElement('div');
+    pageOverlay.id = 'page-transition-overlay';
+    pageOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #000 0%, #0a0a0a 100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: monospace;
+        font-size: 1.5rem;
+        color: #00f0ff;
+    `;
+    document.body.appendChild(pageOverlay);
+    function setupPageTransitions() {
+        const navLinks = document.querySelectorAll('.nav-link, a[href$=".html"]');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+
+                // Ne pas intercepter les liens externes ou les ancres
+                if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:')) {
+                    return;
+                }
+
+                e.preventDefault();
+                const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
+                pageOverlay.innerHTML = currentTheme === 'cyberpunk'
+                    ? '<span class="blink">LOADING...</span>'
+                    : '<span class="blink">Loading...</span>';
+
+                pageOverlay.style.pointerEvents = 'all';
+                pageOverlay.style.opacity = '1';
+
+                // Attendre la fin de l'animation avant de changer de page
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 200);
+            });
+        });
+    }
+
+    function pageEnterAnimation() {
+        pageOverlay.style.opacity = '1';
+        pageOverlay.style.pointerEvents = 'all';
+
+        setTimeout(() => {
+            pageOverlay.style.opacity = '0';
+            setTimeout(() => {
+                pageOverlay.style.pointerEvents = 'none';
+            }, 200);
+        }, 50);
+    }
+
+    /* =============================================================================
+       1. DICTIONNAIRE DE DONNÉES (TEXTES & LORE)
     ============================================================================= */
     const translations = {
         'cyberpunk': {
@@ -134,7 +197,7 @@ function initializeApp() {
     }
 
     /* ---------------------------------------------------
-       1. EFFET MACHINE A ECRIRE
+       2. EFFET MACHINE A ECRIRE
     --------------------------------------------------- */
     const typingElement = document.getElementById('typing-text');
 
@@ -161,10 +224,8 @@ function initializeApp() {
         type();
     }
 
-    startTypewriter(subtitles[initTheme]);
-
     /* ---------------------------------------------------
-       2. NAVIGATION AUTO (Active Link)
+       3. NAVIGATION AUTO (Active Link)
     --------------------------------------------------- */
     const path = window.location.pathname;
     let pageName = path.split("/").pop().replace('.html', '');
@@ -183,9 +244,8 @@ function initializeApp() {
     });
 
     /* ---------------------------------------------------
-       3. THEME SWITCHER OPTIMISÉ (avec transition)
+       4. THEME SWITCHER OPTIMISÉ (avec transition)
     --------------------------------------------------- */
-
     const overlay = document.createElement('div');
     overlay.style.cssText = `
         position: fixed;
@@ -197,14 +257,14 @@ function initializeApp() {
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-        z-index: 9999;
+        z-index: 9998;
     `;
     document.body.appendChild(overlay);
 
     function switchTheme(newTheme, withTransition = false) {
         const cyberpunkLink = document.getElementById('theme-cyberpunk');
         const nierLink = document.getElementById('theme-nier');
-        
+
         const applyTheme = () => {
             if (newTheme === 'nier') {
                 if (cyberpunkLink) cyberpunkLink.rel = 'alternate stylesheet';
@@ -221,7 +281,7 @@ function initializeApp() {
                 startTypewriter(subtitles['cyberpunk']);
                 console.log("System: Arasaka protocol restored.");
             }
-            
+
             document.querySelectorAll('[data-theme]').forEach(el => {
                 el.style.display = el.dataset.theme === newTheme ? '' : 'none';
             });
@@ -231,7 +291,7 @@ function initializeApp() {
         if (withTransition) {
             overlay.style.pointerEvents = 'all';
             overlay.style.opacity = '1';
-            
+
             setTimeout(() => {
                 applyTheme();
                 setTimeout(() => {
@@ -257,7 +317,7 @@ function initializeApp() {
     }
 
     /* ---------------------------------------------------
-       4. EFFET GLITCH ALEATOIRE (Titre H1)
+       5. EFFET GLITCH ALEATOIRE (Titre H1)
     --------------------------------------------------- */
     const title = document.querySelector('h1');
 
@@ -282,10 +342,12 @@ function initializeApp() {
     console.log("%c SYSTEM READY ", "background: #000; color: #00f0ff; font-size: 15px; border: 1px solid #00f0ff; padding: 5px;");
 
     /* ---------------------------------------------------
-       INITIALISATION
+       INITIALISATION FINALE
     --------------------------------------------------- */
     updateText(initTheme);
-    startTypewriter(subtitles[initTheme]);
+    setTimeout(() => {
+        startTypewriter(subtitles[initTheme]);
+    }, 200);
 
     if(themeBtn) {
         themeBtn.textContent = initTheme === 'nier' ? "[ OS: YoRHa ]" : "[ OS: ARASAKA ]";
@@ -295,6 +357,8 @@ function initializeApp() {
         el.style.display = el.dataset.theme === initTheme ? '' : 'none';
     });
 
+    setupPageTransitions();
+    pageEnterAnimation();
     requestAnimationFrame(() => {
         document.documentElement.classList.remove('preload');
     });
