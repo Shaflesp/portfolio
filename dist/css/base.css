@@ -1,12 +1,32 @@
+/* Amélioration du système de préchargement */
+html.preload * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
 html.preload body {
-    visibility: hidden;
-    opacity: 0;
-    transition: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 html body {
     visibility: visible;
     opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Loading indicator optionnel */
+html.preload::after {
+    content: 'LOADING...';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00f0ff;
+    font-family: monospace;
+    font-size: 1.5rem;
+    z-index: 99999;
+    animation: blink 1s infinite;
 }
 
 /* --- VARIABLES & BASE --- */
@@ -139,7 +159,7 @@ h1 {
 }
 .portrait-img {
     object-fit: cover;
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
 
 /* --- CARDS & SECTIONS --- */

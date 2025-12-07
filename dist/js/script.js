@@ -1,4 +1,45 @@
+// Attendre que les CSS soient chargés avant de démarrer
+let cssLoaded = { cyberpunk: false, nier: false };
+let initStarted = false;
+
+function checkCSSLoaded() {
+    const cyberpunkLink = document.getElementById('theme-cyberpunk');
+    const nierLink = document.getElementById('theme-nier');
+    
+    if (cyberpunkLink) {
+        cyberpunkLink.onload = () => { 
+            cssLoaded.cyberpunk = true;
+            tryInit();
+        };
+    }
+    if (nierLink) {
+        nierLink.onload = () => { 
+            cssLoaded.nier = true;
+            tryInit();
+        };
+    }
+    
+    // Fallback si les CSS sont déjà en cache
+    setTimeout(() => {
+        if (!initStarted) {
+            cssLoaded = { cyberpunk: true, nier: true };
+            tryInit();
+        }
+    }, 100);
+}
+
+function tryInit() {
+    if (!initStarted && cssLoaded.cyberpunk && cssLoaded.nier) {
+        initStarted = true;
+        initializeApp();
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    checkCSSLoaded();
+});
+
+function initializeApp() {
     const initTheme = localStorage.getItem('theme') || 'cyberpunk';
     const themeBtn = document.getElementById('theme-toggle');
 
@@ -142,8 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ---------------------------------------------------
-       3. THEME SWITCHER
+       3. THEME SWITCHER OPTIMISÉ (avec transition)
     --------------------------------------------------- */
+
     const overlay = document.createElement('div');
     overlay.style.cssText = `
         position: fixed;
@@ -162,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function switchTheme(newTheme, withTransition = false) {
         const cyberpunkLink = document.getElementById('theme-cyberpunk');
         const nierLink = document.getElementById('theme-nier');
-
+        
         const applyTheme = () => {
             if (newTheme === 'nier') {
                 if (cyberpunkLink) cyberpunkLink.rel = 'alternate stylesheet';
@@ -179,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 startTypewriter(subtitles['cyberpunk']);
                 console.log("System: Arasaka protocol restored.");
             }
-
+            
             document.querySelectorAll('[data-theme]').forEach(el => {
                 el.style.display = el.dataset.theme === newTheme ? '' : 'none';
             });
@@ -189,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (withTransition) {
             overlay.style.pointerEvents = 'all';
             overlay.style.opacity = '1';
-
+            
             setTimeout(() => {
                 applyTheme();
                 setTimeout(() => {
@@ -203,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
             applyTheme();
         }
     }
+
     switchTheme(initTheme, false);
 
     if (themeBtn) {
@@ -255,4 +298,4 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(() => {
         document.documentElement.classList.remove('preload');
     });
-});
+}

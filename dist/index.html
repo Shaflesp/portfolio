@@ -6,27 +6,36 @@
     <title>HOME // REMY_MARTIN</title>
     <base href="/">
 
-     <link rel="stylesheet" href="css/base.css">
-<script>
-    (function() {
-        const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
+    <link rel="stylesheet" href="css/base.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
+            const cyberpunkLink = document.createElement('link');
+            cyberpunkLink.rel = savedTheme === 'cyberpunk' ? 'stylesheet' : 'alternate stylesheet';
+            cyberpunkLink.href = 'css/cyberpunk.css';
+            cyberpunkLink.id = 'theme-cyberpunk';
 
-        const cyberpunkLink = document.createElement('link');
-        cyberpunkLink.rel = savedTheme === 'cyberpunk' ? 'stylesheet' : 'alternate stylesheet';
-        cyberpunkLink.href = 'css/cyberpunk.css';
-        cyberpunkLink.id = 'theme-cyberpunk';
+            const nierLink = document.createElement('link');
+            nierLink.rel = savedTheme === 'nier' ? 'stylesheet' : 'alternate stylesheet';
+            nierLink.href = 'css/nier.css';
+            nierLink.id = 'theme-nier';
 
-        const nierLink = document.createElement('link');
-        nierLink.rel = savedTheme === 'nier' ? 'stylesheet' : 'alternate stylesheet';
-        nierLink.href = 'css/nier.css';
-        nierLink.id = 'theme-nier';
+            document.head.appendChild(cyberpunkLink);
+            document.head.appendChild(nierLink);
+        })();
+    </script>
 
-        document.head.appendChild(cyberpunkLink);
-        document.head.appendChild(nierLink);
+    <style>
+        html.preload * {
+            animation-duration: 0s !important;
+            transition-duration: 0s !important;
+        }
 
-        document.documentElement.classList.add('preload');
-    })();
-</script>
+        html.preload body {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="scanlines" data-theme="cyberpunk"></div>
@@ -45,12 +54,12 @@
         <div class="grid-system">
             <aside>
                 <div class="portrait-frame" data-theme="cyberpunk">
-                    <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
+                    <img src="image/MARTIN.jpg" alt="Portrait" class="portrait-img">
                     <div class="scan-bar"></div>
                     <span class="img-caption">ID: CONFIRMED</span>
                 </div>
                 <div class="portrait-frame" data-theme="nier">
-                    <img src="image/G4jDNvGWUAA5F52.jpg" alt="Portrait" class="portrait-img">
+                    <img src="image/MARTIN.jpg" alt="Portrait" class="portrait-img">
                 </div>
 
                 <nav class="nav-menu">
