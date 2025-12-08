@@ -49,7 +49,7 @@ body::before {
 body::after {
     content: "WARNING // MEMORY LEAK DETECTED // 0x5F3A001 // REBOOT REQUIRED // UPLINK ESTABLISHED";
     right: 40px;
-    color: var(--color2); /* Rouge */
+    color: var(--color2);
     border-right: none;
     border-left: 1px dashed rgba(255, 0, 60, 0.2);
     padding-right: 0;
