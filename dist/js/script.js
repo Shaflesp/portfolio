@@ -85,7 +85,7 @@ function initializeApp() {
 
                 setTimeout(() => {
                     window.location.href = href;
-                }, 200);
+                }, 250);
             });
         });
     }
@@ -98,7 +98,7 @@ function initializeApp() {
             pageOverlay.style.opacity = '0';
             setTimeout(() => {
                 pageOverlay.style.pointerEvents = 'none';
-            }, 200);
+            }, 250);
         }, 50);
     }
 
