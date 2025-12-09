@@ -52,7 +52,6 @@ function initializeApp() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #000 0%, #0a0a0a 100%);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.4s ease;
@@ -60,9 +59,8 @@ function initializeApp() {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: monospace;
         font-size: 1.5rem;
-        color: #eeeeee;
+        font-weight: bold;
     `;
     document.body.appendChild(pageOverlay);
     function setupPageTransitions() {
@@ -76,9 +74,19 @@ function initializeApp() {
 
                 e.preventDefault();
                 const currentTheme = localStorage.getItem('theme') || 'cyberpunk';
-                pageOverlay.innerHTML = currentTheme === 'cyberpunk'
-                    ? '<span class="blink">LOADING...</span>'
-                    : '<span class="blink">Loading...</span>';
+
+                if (currentTheme === 'nier') {
+                    pageOverlay.style.background = '#dcd8c8';
+                    pageOverlay.style.color = '#8a1c1c';
+                    pageOverlay.style.fontFamily='"Cormorant Garamond", serif'
+                    pageOverlay.innerHTML = '<span class="blink">Loading Environment...</span>';
+                } else {
+                    pageOverlay.style.background = '050505';
+                    pageOverlay.style.color = '#00f0ff';
+                    pageOverlay.style.fontFamily='"Share Tech Mono", monospace';
+                    pageOverlay.style.textShadow= '0 0 10px #00f0ff';
+                    pageOverlay.innerHTML = '<span class="blink">LOADING SYSTEM...</span>';
+                }
 
                 pageOverlay.style.pointerEvents = 'all';
                 pageOverlay.style.opacity = '1';

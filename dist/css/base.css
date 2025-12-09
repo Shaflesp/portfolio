@@ -5,8 +5,10 @@ html.preload * {
 }
 
 html.preload body {
+    background: var(--bg-color);
     visibility: hidden !important;
     opacity: 0 !important;
+
 }
 
 html body {
@@ -14,20 +16,15 @@ html body {
     opacity: 1;
 }
 
-/* Loading indicator */
 html.preload::after {
-    content: 'LOADING SYSTEM...';
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #00f0ff;
-    font-family: monospace;
     font-size: 1.5rem;
     font-weight: bold;
     z-index: 99999;
     animation: blink 1s infinite;
-    text-shadow: 0 0 10px #00f0ff;
 }
 
 /* --- VARIABLES & BASE --- */

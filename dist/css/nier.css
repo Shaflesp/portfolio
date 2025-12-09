@@ -7,6 +7,12 @@
     font-style: normal;
 }
 
+html.preload::after {
+    content: 'Loading Environment...';
+    color: var(--color2);
+    font-family: 'Cormorant Garamond', serif;
+}
+
 /* --- 1. VARIABLES & BASE --- */
 :root{
     --bg-color: #dcd8c8;
