@@ -328,7 +328,7 @@ footer {
 }
 
 @media (max-width: 500px) {
-    .portrait-frame { width: 60vw; }
+    .portrait-frame { width: 60vw; margin: 0 auto; }
     h1 { font-size: 1.8rem; }
     .contact-info p { flex-wrap: wrap; }
 }

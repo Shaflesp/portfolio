@@ -54,15 +54,13 @@ export class ThemeManager {
     for (const [key, html] of Object.entries(TRANSLATIONS[theme])) {
       document.querySelectorAll<HTMLElement>(`[data-id="${key}"]`).forEach(el => {
         el.innerHTML = html;
-        // Keep glitch data-text in sync with the visible text
         if (el.classList.contains('glitch')) el.dataset['text'] = el.innerText;
       });
     }
 
-    // Decoration spéciale Nier
     document.querySelectorAll<HTMLElement>('h2').forEach(h2 => {
       h2.dataset['angelic'] = theme === 'nier'
-        ? h2.innerText.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        ? (h2.textContent || '').trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
         : '';
     });
   }
