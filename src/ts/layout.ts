@@ -17,12 +17,12 @@ export function mountAside(): void {
 
   aside.innerHTML = `
     <div class="portrait-frame portrait-frame--cyberpunk">
-      <img src="/public/images/MARTIN.png" alt="Portrait de Rémy Martin" class="portrait-img">
+      <img src="/images/MARTIN.png" alt="Portrait de Rémy Martin" class="portrait-img">
       <div class="scan-bar" aria-hidden="true"></div>
       <span class="img-caption">ID: CONFIRMED</span>
     </div>
     <div class="portrait-frame portrait-frame--nier">
-      <img src="/public/images/MARTIN.png" alt="Portrait de Rémy Martin" class="portrait-img">
+      <img src="/images/MARTIN.png" alt="Portrait de Rémy Martin" class="portrait-img">
     </div>
 
     <!-- Navigation -->
