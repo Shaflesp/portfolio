@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr" class="preload">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CURSUS // REMY_MARTIN</title>
+  <link rel="icon" href="/assets/images/logo.png" type="image/png">
+  <script>
+    document.documentElement.dataset.theme =
+            localStorage.getItem('theme') || 'cyberpunk';
+  </script>
+  <style>
+    html.preload body { visibility: hidden; opacity: 0; }
+    html[data-theme="cyberpunk"] body { background: #050505; }
+    html[data-theme="nier"]      body { background: #dcd8c8; }
+  </style>
+  <script type="module" src="/src/ts/main.ts"></script>
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="container">
+  <header>
+    <div class="top-bar">
+      <span data-id="net-status" class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+      <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">[ OS: ARASAKA ]</button>
+    </div>
+    <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
+    <div class="subtitle typing-cursor" id="typing-text" aria-live="polite"></div>
+  </header>
+
+  <div class="grid-system">
+    <aside data-layout="aside"></aside>
+    <main>
+      <section class="card">
+        <h2 data-id="education-title">EDUCATION</h2>
+        <p data-id="education-sub" class="highlight-text"></p>
+      </section>
+
+      <section class="card">
+        <div class="timeline-item">
+          <span class="time-date">2024 - 2025 (EN COURS)</span>
+          <h3>BUT INFORMATIQUE</h3>
+          <span class="place">IUT A - Université de Lille</span>
+          <div class="timeline-desc">
+            <p><span data-id="bullet"></span>Spécialisation : Développement logiciel.</p>
+            <br>
+            <span class="skill-tag">JAVA</span>
+            <span class="skill-tag">JAVA EE</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">GIT</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="time-date">OBTENU EN 2024</span>
+          <h3>BACCALAURÉAT GÉNÉRAL</h3>
+          <span class="place">Lycée Albert Châtelet (Douai)</span>
+          <div class="timeline-desc">
+            <p><span data-id="option-span"></span> Numérique et Sciences de l'Informatique (NSI).</p>
+            <p><span data-id="option-span"></span> Mathématiques</p>
+            <p>&gt; Mention Bien.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="time-date">2021</span>
+          <h3>BREVET DES COLLÈGES</h3>
+          <span class="place">Collège Jules Ferry (Douai)</span>
+          <div class="timeline-desc">
+            <p>&gt; Mention Très Bien.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer data-id="footer-text"></footer>
+</div>
+</body>
+</html>

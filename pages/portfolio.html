@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr" class="preload">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECTS // REMY_MARTIN</title>
+  <link rel="icon" href="/assets/images/logo.png" type="image/png">
+  <script>
+    document.documentElement.dataset.theme =
+            localStorage.getItem('theme') || 'cyberpunk';
+  </script>
+  <style>
+    html.preload body { visibility: hidden; opacity: 0; }
+    html[data-theme="cyberpunk"] body { background: #050505; }
+    html[data-theme="nier"]      body { background: #dcd8c8; }
+  </style>
+  <script type="module" src="/src/ts/main.ts"></script>
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="container">
+  <header>
+    <div class="top-bar">
+      <span data-id="net-status" class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+      <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">[ OS: ARASAKA ]</button>
+    </div>
+    <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
+    <div class="subtitle typing-cursor" id="typing-text" aria-live="polite"></div>
+  </header>
+
+  <div class="grid-system">
+    <aside data-layout="aside"></aside>
+    <main>
+      <section class="card">
+        <h2 data-id="portfolio-title">PROJECTS</h2>
+        <p class="highlight-text">Accès aux archives des projets. Cliquez pour voir le code source.</p>
+      </section>
+
+      <div class="project-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+
+        <article class="card project-card">
+          <img src="/assets/images/img.png" alt="Aperçu webPlayer">
+          <div class="project-card__body">
+            <h3>webPlayer</h3>
+            <p>Site personnel pour écouter mes musiques préférées.</p>
+            <div class="project-card__tags">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JS</span>
+              <span class="skill-tag">JAVA</span>
+              <span class="skill-tag">JAVA EE</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+            <a data-id="access-code"
+               href="https://github.com/Shaflesp/webPlayer"
+               target="_blank" rel="noopener"
+               class="project-card__link"></a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <img src="/assets/images/img_1.png" alt="Aperçu SIRTET">
+          <div class="project-card__body">
+            <h3><span class="project-tag">[IUT]</span> SIRTET</h3>
+            <p>Une réplique de Tetris™ faite en seulement 28H !</p>
+            <div class="project-card__tags">
+              <span class="skill-tag">JAVA</span>
+            </div>
+            <a data-id="access-code"
+               href="https://gitlab.univ-lille.fr/iut-info/p3.01/2025-2026/groupe-3"
+               target="_blank" rel="noopener"
+               class="project-card__link"></a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <img src="/assets/images/img_2.png" alt="Aperçu outil appariement">
+          <div class="project-card__body">
+            <h3><span class="project-tag">[IUT]</span> Outil d'appariement Universitaire</h3>
+            <p>Un outil d'aide à la décision pour appareiller des étudiants internationaux.</p>
+            <div class="project-card__tags">
+              <span class="skill-tag">JAVA</span>
+            </div>
+            <a data-id="access-code"
+               href="https://gitlab.univ-lille.fr/sae2.01-2.02/2025/D7"
+               target="_blank" rel="noopener"
+               class="project-card__link"></a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <img src="/assets/images/img_3.png" alt="Aperçu Planet Colonizer">
+          <div class="project-card__body">
+            <h3><span class="project-tag">[IUT]</span> Planet Colonizer</h3>
+            <p>Jeu ludo-pédagogique de gestion de ressources et d'apprentissage de la physique.</p>
+            <div class="project-card__tags">
+              <span class="skill-tag">JAVA</span>
+            </div>
+            <a data-id="access-code"
+               href="https://github.com/Aksel-B/Planet-Colonizer"
+               target="_blank" rel="noopener"
+               class="project-card__link"></a>
+          </div>
+        </article>
+
+      </div>
+    </main>
+  </div>
+  <footer data-id="footer-text"></footer>
+</div>
+</body>
+</html>

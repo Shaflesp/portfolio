@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr" class="preload">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXP // REMY_MARTIN</title>
+  <link rel="icon" href="/assets/images/logo.png" type="image/png">
+  <script>
+    document.documentElement.dataset.theme =
+            localStorage.getItem('theme') || 'cyberpunk';
+  </script>
+  <style>
+    html.preload body { visibility: hidden; opacity: 0; }
+    html[data-theme="cyberpunk"] body { background: #050505; }
+    html[data-theme="nier"]      body { background: #dcd8c8; }
+  </style>
+  <script type="module" src="/src/ts/main.ts"></script>
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="container">
+  <header>
+    <div class="top-bar">
+      <span data-id="net-status" class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+      <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">[ OS: ARASAKA ]</button>
+    </div>
+    <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
+    <div class="subtitle typing-cursor" id="typing-text" aria-live="polite"></div>
+  </header>
+
+  <div class="grid-system">
+    <aside data-layout="aside"></aside>
+    <main>
+      <section class="card">
+        <h2 data-id="exp-title" class="red-glow">EXPERIENCE</h2>
+        <p data-id="exp-sub" class="highlight-text"></p>
+        <p data-id="exp-status"></p>
+        <br>
+        <p>Actuellement en recherche de ma première mission (Stage / Alternance).</p>
+      </section>
+
+      <section class="card">
+        <div class="job-header">
+          <h3>PROJETS ACADÉMIQUES &amp; TPs</h3>
+          <span class="company">TRAINING_FACILITY</span>
+        </div>
+        <div class="job-date">2024 - PRÉSENT</div>
+        <p style="margin: 15px 0;">Réalisation de divers projets techniques dans le cadre du cursus universitaire.</p>
+        <div style="margin-bottom: 15px;">
+          <span class="skill-tag">JAVA</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">WEB</span>
+        </div>
+        <ul class="job-details">
+          <li><span data-id="bullet"></span>Création d'un site web vitrine</li>
+          <li><span data-id="bullet"></span>Réalisation en 28h d'une réplique de Tetris™ (SIRTET)</li>
+          <li><span data-id="bullet"></span>Développement d'un logiciel d'échanges Universitaires international</li>
+          <li><span data-id="bullet"></span>Mise en place d'un serveur de communication Matrix</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="job-header">
+          <h3>AUTO-FORMATION</h3>
+          <span class="company">SELF_LEARNING</span>
+        </div>
+        <div class="job-date">PERMANENT</div>
+        <p style="margin: 15px 0;">Veille technologique active et apprentissage en autonomie</p>
+        <ul class="job-details">
+          <li><span data-id="bullet"></span>Automatisation de build et gestion des dépendances Java via <strong>Maven</strong></li>
+          <li><span data-id="bullet"></span>Recherche et implémentation de solutions logiques pour répondre à des problématiques</li>
+          <li><span data-id="bullet"></span>Mise en place d'un environnement personnel de travail <strong>Arch Linux</strong></li>
+        </ul>
+      </section>
+
+      <section class="card awaiting-card">
+        <h3 data-id="exp-awaiting-title" class="awaiting-title">AWAITING</h3>
+        <p data-id="exp-awaiting-text" class="awaiting-text"></p>
+      </section>
+    </main>
+  </div>
+  <footer data-id="footer-text"></footer>
+</div>
+</body>
+</html>
