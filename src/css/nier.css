@@ -216,7 +216,7 @@ html[data-theme="nier"] .portrait-frame::after {
     animation: magicSpin 40s linear infinite reverse;
 
     pointer-events: none;
-    z-index: 3; /
+    z-index: 3;
 }
 
 @keyframes magicSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
