@@ -13,6 +13,7 @@ export default defineConfig({
         cursus:     'pages/cursus.html',
         experience: 'pages/experience.html',
         portfolio:  'pages/portfolio.html',
+        project:    'pages/project.html',
       },
     },
   },

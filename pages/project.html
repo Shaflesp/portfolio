@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr" class="preload">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT // REMY_MARTIN</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <script>
+        document.documentElement.dataset.theme =
+            localStorage.getItem('theme') || 'cyberpunk';
+    </script>
+    <style>
+        html.preload body { visibility: hidden; opacity: 0; }
+        html[data-theme="cyberpunk"] body { background: #050505; }
+        html[data-theme="nier"]      body { background: #dcd8c8; }
+    </style>
+    <script type="module" src="/src/ts/main.ts"></script>
+    <script type="module" src="/src/ts/project.ts"></script>
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+
+<div class="container">
+    <header>
+        <div class="top-bar">
+            <span data-id="net-status" class="wired-status">Net-Status: <span class="blink">ONLINE</span></span>
+            <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">[ OS: ARASAKA ]</button>
+        </div>
+        <h1 class="glitch" data-text="REMY MARTIN">REMY MARTIN</h1>
+        <div class="subtitle typing-cursor" id="typing-text" aria-live="polite"></div>
+        <div class="sub-header-glitch">
+            <a class="crumb" href="/index.html">ROOT</a> /
+            <a class="crumb" href="/pages/portfolio.html">ARCHIVES</a> /
+            <span class="active">PROJECT_01</span>
+        </div>
+    </header>
+
+    <main>
+        <article class="project-detail-panel">
+
+            <!-- ── Banner ───────────────────────────────────────── -->
+            <div class="project-banner">
+                <div class="banner-wrapper">
+                    <div class="angelic-watermark" aria-hidden="true">archive</div>
+
+                    <img src="/images/projects/wip.png" alt="Aperçu du projet" class="project-cover-img">
+
+                    <div class="scanner-bar" aria-hidden="true"></div>
+
+                    <div class="project-overlay">
+                        <div class="title-block">
+                            <h2 class="project-title" data-text="PROJECT_NAME">PROJECT_NAME</h2>
+                            <span class="project-id" data-id="project-id-label">ID: 59-44-10</span>
+                        </div>
+                        <div class="meta-tags">
+                            <span class="status-tag success">STATUS: COMPLETE</span>
+                            <span class="status-tag warning">CLASS: S-RANK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Data grid ─────────────────────────────────────── -->
+            <div class="data-grid">
+                <div class="data-cell">
+                    <span class="label">CLIENT</span>
+                    <span class="value">Personal Unit</span>
+                </div>
+                <div class="data-cell">
+                    <span class="label">DATE</span>
+                    <span class="value">2024.10.25</span>
+                </div>
+                <div class="data-cell">
+                    <span class="label">ROLE</span>
+                    <span class="value">Full Stack Dev</span>
+                </div>
+                <div class="data-cell">
+                    <span class="label">LANG</span>
+                    <span class="value">Java, JS</span>
+                </div>
+            </div>
+
+            <!-- ── Body: text + gallery ──────────────────────────── -->
+            <div class="project-body-layout">
+
+                <!-- Text column -->
+                <div class="project-text-content">
+                    <div class="tech-stack-container">
+                        <span class="label-block">SYSTEM_COMPONENTS ::</span>
+                        <div class="tech-chips">
+                            <span class="chip">JAVA</span>
+                            <span class="chip">JAVA EE</span>
+                            <span class="chip">SQL</span>
+                            <span class="chip">JS</span>
+                        </div>
+                    </div>
+
+                    <h3 class="section-header">MISSION BRIEF</h3>
+                    <div class="text-block">
+                        <p>
+                            <span class="highlight-text">Objective:</span>
+                            Développer un système capable de gérer des flux de données en temps réel.
+                        </p>
+                        <p>
+                            Le projet se concentre sur une architecture robuste.
+                            Le défi principal était l'optimisation des requêtes SQL.
+                        </p>
+                    </div>
+
+                    <h3 class="section-header">KEY_FEATURES</h3>
+                    <ul class="feature-list">
+                        <li>Transmission de données chiffrée.</li>
+                        <li>Interface cybernétique responsive.</li>
+                        <li>Bot de logging automatisé des erreurs.</li>
+                    </ul>
+                </div>
+
+                <!-- Gallery column -->
+                <div class="project-visuals">
+                    <h3 class="section-header gallery-title">VISUAL_RECORDS</h3>
+
+                    <div class="gallery-viewport" id="gallery-viewport">
+                        <div class="noise-overlay" aria-hidden="true"></div>
+                        <div class="corner-bracket tl" aria-hidden="true"></div>
+                        <div class="corner-bracket tr" aria-hidden="true"></div>
+                        <div class="corner-bracket bl" aria-hidden="true"></div>
+                        <div class="corner-bracket br" aria-hidden="true"></div>
+                        <div class="viewport-overlay" aria-hidden="true">
+                            <span class="img-id">IMG: <span id="gallery-img-id">001</span></span>
+                            <span class="live-indicator">● REC</span>
+                        </div>
+
+                        <div class="decoding-overlay" aria-hidden="true"></div>
+                        <div class="img-caption"><span id="gallery-caption-id">REC_001</span></div>
+
+                        <img id="gallery-main-img"
+                             src="/images/projects/wip.png"
+                             alt="Vue principale"
+                             class="gallery-main-img">
+                    </div>
+
+                    <div class="gallery-thumbs" id="gallery-thumbs">
+                        <div class="thumb-item active"
+                             data-src="/images/projects/img.png"
+                             data-id="001"
+                             data-caption="REC_001">
+                            <img src="/images/projects/img.png" alt="Aperçu 1">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/img_1.png"
+                             data-id="002"
+                             data-caption="REC_002">
+                            <img src="/images/projects/img_1.png" alt="Aperçu 2">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/wip.png"
+                             data-id="003"
+                             data-caption="REC_003">
+                            <img src="/images/projects/wip.png" alt="Aperçu 3">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/wip.png"
+                             data-id="004"
+                             data-caption="REC_004">
+                            <img src="/images/projects/wip.png" alt="Aperçu 4">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/img_2.png"
+                             data-id="005"
+                             data-caption="REC_005">
+                            <img src="/images/projects/img_2.png" alt="Aperçu 5">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/img_3.png"
+                             data-id="006"
+                             data-caption="REC_006">
+                            <img src="/images/projects/img_3.png" alt="Aperçu 6">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/wip.png"
+                             data-id="007"
+                             data-caption="REC_007">
+                            <img src="/images/projects/wip.png" alt="Aperçu 7">
+                        </div>
+                        <div class="thumb-item"
+                             data-src="/images/projects/wip.png"
+                             data-id="008"
+                             data-caption="REC_008">
+                            <img src="/images/projects/wip.png" alt="Aperçu 8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Actions ───────────────────────────────────────── -->
+            <div class="project-actions">
+                <a href="https://github.com/Shaflesp" target="_blank" rel="noopener" class="project-btn primary">
+                    <span class="btn-text">INITIALIZE_CODE_ACCESS</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="project-btn secondary">
+                    <span class="btn-text">RUN_DIAGNOSTICS (DEMO)</span>
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer data-id="footer-text"></footer>
+</div>
+
+<!-- ── Fullscreen modal ──────────────────────────────────── -->
+<div id="fullscreen-modal" class="fullscreen-modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <div class="modal-header">
+        <span class="modal-title">
+          ARCHIVE // <span id="modal-id-display">001</span>
+        </span>
+            <button class="modal-close-btn" id="modal-close-btn">[ CLOSE ]</button>
+        </div>
+        <div class="modal-img-container">
+            <div class="modal-scanline" aria-hidden="true"></div>
+            <img id="modal-full-img" src="" alt="Vue plein écran">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

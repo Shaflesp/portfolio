@@ -1,0 +1,302 @@
+/* ── Breadcrumb ─────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .sub-header-glitch {
+    font-family: 'Share Tech Mono', monospace;
+    color: #555;
+}
+html[data-theme="cyberpunk"] .sub-header-glitch .crumb { color: var(--color3); }
+html[data-theme="cyberpunk"] .sub-header-glitch .active {
+    color: var(--color1); text-shadow: 0 0 5px var(--color1);
+}
+
+/* ── Panel ──────────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .project-detail-panel {
+    background: rgba(5,5,5,0.9);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+/* ── Banner ─────────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .project-banner  { border-bottom: 2px solid var(--color3); }
+html[data-theme="cyberpunk"] .project-cover-img { opacity: 0.5; }
+html[data-theme="cyberpunk"] .project-overlay {
+    background: linear-gradient(0deg, #050505 0%, transparent 100%);
+}
+html[data-theme="cyberpunk"] .project-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem; margin: 0;
+    color: var(--color1) !important;
+    text-shadow: 2px 2px 0 rgba(255,0,60,0.4);
+
+    border-bottom: none;
+    box-shadow: none;
+    padding-bottom: 0;
+    display: block;
+}
+html[data-theme="cyberpunk"] .project-id {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--color3); font-size: 0.8rem; letter-spacing: 2px;
+}
+html[data-theme="cyberpunk"] .status-tag.success {
+    color: var(--color3); border-color: var(--color3);
+    background: rgba(0,240,255,0.1);
+}
+html[data-theme="cyberpunk"] .status-tag.warning {
+    color: var(--color1); border-color: var(--color1);
+    background: rgba(252,238,10,0.1);
+}
+
+html[data-theme="cyberpunk"] .angelic-watermark { display: none; }
+
+/* ── Scanner bar  ─────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .scanner-bar {
+    background: rgba(0,240,255,0.5);
+    box-shadow: 0 0 10px var(--color3);
+    animation: scanVertical 3s linear infinite;
+}
+@keyframes scanVertical {
+    0%   { top: 0;   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* ── Data grid ──────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .data-grid {
+    background: rgba(0,240,255,0.03);
+    border-bottom: 1px dashed #333;
+}
+html[data-theme="cyberpunk"] .data-cell .label {
+    color: var(--color3); opacity: 0.7;
+    font-family: 'Share Tech Mono', monospace;
+}
+html[data-theme="cyberpunk"] .data-cell .value {
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* ── Body layout ────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .project-text-content {
+    border-right: 1px dashed #333;
+}
+html[data-theme="cyberpunk"] .project-visuals {
+    background: rgba(0,0,0,0.3);
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .section-header {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color3);
+    border-bottom: 1px solid var(--color3);
+    text-shadow: 0 0 8px var(--color3);
+}
+html[data-theme="cyberpunk"] .label-block { color: var(--color2); }
+html[data-theme="cyberpunk"] .feature-list li { color: #aaa; }
+html[data-theme="cyberpunk"] .feature-list li::before {
+    content: '>';
+    position: absolute; left: 0; top: 0;
+    color: var(--color1);
+}
+
+/* ── Tech chips ─────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .chip {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--color1);
+    color: var(--color1);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+    transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+html[data-theme="cyberpunk"] .chip::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 0%; height: 100%;
+    background: var(--color1);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+html[data-theme="cyberpunk"] .chip:hover::before { width: 100%; }
+html[data-theme="cyberpunk"] .chip:hover {
+    color: #000;
+    box-shadow: 0 0 12px var(--color1);
+    border-color: var(--color1);
+}
+
+html[data-theme="cyberpunk"] .tech-stack-container {
+    border-bottom: 1px dashed #333;
+}
+
+/* ── Gallery ────────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .gallery-viewport {
+    aspect-ratio: 16 / 9;
+    background: #000; border: 1px solid #444;
+    box-shadow: inset 0 0 20px #000;
+    transition: border-color 0.1s;
+    margin-bottom: 15px;
+}
+html[data-theme="cyberpunk"] .gallery-viewport.glitch-active {
+    animation: flashBorder 0.4s ease-out;
+}
+
+@keyframes flashBorder {
+    0%   { border-color: #444; }
+    20%  { border-color: #fff; box-shadow: 0 0 20px #fff; }
+    100% { border-color: #444; box-shadow: inset 0 0 20px #000; }
+}
+html[data-theme="cyberpunk"] .gallery-main-img {
+    width: 100%; height: 100%; object-fit: contain;
+}
+html[data-theme="cyberpunk"] .gallery-main-img.decoding {
+    animation: glitchImg 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
+}
+
+@keyframes glitchImg {
+    0%   { transform: translate(0);            filter: brightness(1); opacity: 1; }
+    20%  { transform: translate(-5px,2px) skewX(10deg);
+        filter: brightness(2) saturate(0) contrast(2);
+        clip-path: inset(10% 0 40% 0);    opacity: 0.8; }
+    40%  { transform: translate(5px,-2px) skewX(-10deg);
+        filter: brightness(0.5) sepia(1) hue-rotate(90deg);
+        clip-path: inset(40% 0 10% 0);    opacity: 0.5; }
+    60%  { transform: translate(-2px,0);       filter: brightness(1.5);
+        clip-path: inset(0 0 0 0);          opacity: 1; }
+    100% { transform: translate(0);            filter: brightness(1); opacity: 1; }
+}
+html[data-theme="cyberpunk"] .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+html[data-theme="cyberpunk"] .gallery-viewport.glitch-active .noise-overlay {
+    animation: noiseFlash 0.4s steps(2);
+}
+@keyframes noiseFlash {
+    0%   { opacity: 0; }
+    20%  { opacity: 0.4; transform: scaleX(-1); }
+    50%  { opacity: 0.2; transform: scaleY(-1); }
+    100% { opacity: 0; }
+}
+html[data-theme="cyberpunk"] .corner-bracket {
+    border: 2px solid var(--color3);
+}
+html[data-theme="cyberpunk"] .gallery-viewport:hover .corner-bracket {
+    width: 20px; height: 20px;
+    box-shadow: 0 0 5px var(--color3);
+}
+
+html[data-theme="cyberpunk"] .tl { border-bottom: none; border-right: none; }
+html[data-theme="cyberpunk"] .tr { border-bottom: none; border-left:  none; }
+html[data-theme="cyberpunk"] .bl { border-top:    none; border-right: none; }
+html[data-theme="cyberpunk"] .br { border-top:    none; border-left:  none; }
+html[data-theme="cyberpunk"] .viewport-overlay {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--color3); text-shadow: 0 0 2px var(--color3);
+}
+html[data-theme="cyberpunk"] .live-indicator {
+    color: var(--color2); animation: blink 1s infinite;
+}
+
+html[data-theme="cyberpunk"] .decoding-overlay { display: none; }
+html[data-theme="cyberpunk"] .img-caption      { display: none; }
+
+/* Thumbs */
+html[data-theme="cyberpunk"] .gallery-thumbs {
+    scrollbar-color: var(--color3) #111;
+}
+html[data-theme="cyberpunk"] .gallery-thumbs::-webkit-scrollbar        { height: 6px; }
+html[data-theme="cyberpunk"] .gallery-thumbs::-webkit-scrollbar-track  { background: #111; }
+html[data-theme="cyberpunk"] .gallery-thumbs::-webkit-scrollbar-thumb  { background: var(--color3); border-radius: 3px; }
+html[data-theme="cyberpunk"] .thumb-item {
+    min-width: 100px; height: 60px; border: 1px solid #333;
+}
+html[data-theme="cyberpunk"] .thumb-item img { width: 100%; height: 100%; }
+html[data-theme="cyberpunk"] .thumb-item:hover { border-color: #fff; }
+html[data-theme="cyberpunk"] .thumb-item.active {
+    border: 1px solid var(--color1); box-shadow: 0 0 10px var(--color1);
+}
+html[data-theme="cyberpunk"] .thumb-item.active::after {
+    content: '';
+    position: absolute; top: -5px; left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent; border-right: 5px solid transparent;
+    border-top: 5px solid var(--color1);
+}
+
+/* ── Actions ────────────────────────────────────────────────── */
+
+html[data-theme="cyberpunk"] .project-actions {
+    padding: 20px; border-top: 1px solid #333;
+}
+html[data-theme="cyberpunk"] .project-btn {
+    flex: 1;
+    background: #111; border: 1px solid var(--color3);
+    color: var(--color3); font-family: 'Orbitron', sans-serif;
+}
+html[data-theme="cyberpunk"] .project-btn:hover {
+    background: var(--color3); color: #000;
+    box-shadow: 0 0 20px var(--color3);
+}
+html[data-theme="cyberpunk"] .project-btn.secondary {
+    border-color: #555; color: #aaa;
+}
+html[data-theme="cyberpunk"] .project-btn.secondary:hover {
+    background: #fff; color: #000; box-shadow: 0 0 15px #fff;
+}
+
+/* ── Modal ──────────────────────────────────────────────────── */
+html[data-theme="cyberpunk"] .fullscreen-modal {
+    background: rgba(0,5,10,0.92);
+    backdrop-filter: blur(5px);
+}
+html[data-theme="cyberpunk"] .modal-content {
+    background: #000;
+    border: 1px solid var(--color3);
+    box-shadow: 0 0 50px rgba(0,240,255,0.2);
+}
+html[data-theme="cyberpunk"] .modal-header {
+    background: rgba(0,240,255,0.1);
+    border-bottom: 1px solid var(--color3);
+}
+html[data-theme="cyberpunk"] .modal-title {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--color1); font-size: 0.9rem; letter-spacing: 1px;
+}
+html[data-theme="cyberpunk"] .modal-close-btn {
+    background: transparent; border: 1px solid var(--color2);
+    color: var(--color2); font-family: 'Orbitron', sans-serif;
+    cursor: pointer; padding: 5px 10px; font-size: 0.8rem; transition: 0.3s;
+}
+html[data-theme="cyberpunk"] .modal-close-btn:hover {
+    background: var(--color2); color: #000; box-shadow: 0 0 10px var(--color2);
+}
+html[data-theme="cyberpunk"] .modal-img-container {
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, #111 3px);
+}
+html[data-theme="cyberpunk"] #modal-full-img {
+    filter: contrast(1.1) saturate(1.1);
+}
+html[data-theme="cyberpunk"] .modal-scanline {
+    background: rgba(255,255,255,0.3);
+    animation: scanModal 4s linear infinite; opacity: 0.5;
+}
+
+@keyframes scanModal {
+    0%   { top: 0%;   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}

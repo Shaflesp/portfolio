@@ -1,0 +1,179 @@
+/* ── Header breadcrumb ──────────────────────────────────────── */
+
+.sub-header-glitch { font-size: 0.9rem; margin-top: 10px; }
+.sub-header-glitch a { text-decoration: none; }
+
+/* ── Main panel ─────────────────────────────────────────────── */
+
+.project-detail-panel { position: relative; overflow: hidden; }
+
+/* ── Banner ─────────────────────────────────────────────────── */
+
+.project-banner  { position: relative; height: 300px; overflow: hidden; }
+.banner-wrapper  { position: relative; width: 100%; height: 100%; }
+.project-cover-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 10s ease;
+}
+.project-banner:hover .project-cover-img { transform: scale(1.1); }
+.project-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    padding: 30px; z-index: 3;
+}
+.title-block   { }
+.project-id    { display: block; margin-top: 5px; }
+.meta-tags     { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.status-tag    { padding: 2px 8px; font-weight: bold; font-size: 0.75rem; border: 1px solid; }
+
+/* ── Data grid ──────────────────────────────────────────────── */
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.data-cell { padding: 15px; border-right: 1px dashed #333; text-align: center; }
+.data-cell:last-child { border-right: none; }
+.data-cell .label { display: block; font-size: 0.7rem; }
+.data-cell .value { font-size: 1rem; font-weight: bold; }
+
+/* ── Body layout ────────────────────────────────────────────── */
+
+.project-body-layout  { display: flex; flex-wrap: wrap; }
+.project-text-content { flex: 1; min-width: 300px; padding: 30px; }
+.project-visuals      { flex: 1.3; min-width: 300px; padding: 30px; }
+
+/* ── Tech stack ─────────────────────────────────────────────── */
+
+.tech-stack-container { margin-bottom: 30px; padding-bottom: 20px; }
+.label-block          { font-weight: bold; display: block; margin-bottom: 5px; }
+.tech-chips           { display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; }
+.chip                 { position: relative; overflow: hidden; }
+
+/* ── Section headers ────────────────────────────────────────── */
+
+.section-header {
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+.section-header:first-child { margin-top: 0; }
+.text-block p { margin-bottom: 15px; }
+
+/* ── Feature list ───────────────────────────────────────────── */
+
+.feature-list    { list-style: none; margin-top: 15px; padding-left: 10px; }
+.feature-list li { margin-bottom: 10px; position: relative; padding-left: 25px; }
+
+/* ── Gallery ────────────────────────────────────────────────── */
+
+.gallery-title  { margin-bottom: 15px; }
+.gallery-viewport {
+    position: relative; overflow: hidden;
+    width: 100%; cursor: pointer;
+}
+.gallery-main-img { display: block; }
+
+.noise-overlay {
+    position: absolute; inset: 0;
+    opacity: 0; pointer-events: none; z-index: 4; mix-blend-mode: screen;
+}
+.scanner-bar {
+    position: absolute; width: 100%; height: 2px;
+    top: 0; left: 0; z-index: 5; pointer-events: none;
+}
+.corner-bracket {
+    position: absolute; width: 10px; height: 10px; z-index: 6;
+    transition: width 0.3s, height 0.3s;
+}
+.tl { top: 5px;    left: 5px;  }
+.tr { top: 5px;    right: 5px; }
+.bl { bottom: 5px; left: 5px;  }
+.br { bottom: 5px; right: 5px; }
+.viewport-overlay {
+    position: absolute; top: 10px; left: 10px; right: 10px;
+    display: flex; justify-content: space-between; z-index: 7;
+    font-size: 0.7rem; pointer-events: none;
+}
+.decoding-overlay {
+    position: absolute; inset: 0;
+    opacity: 0; pointer-events: none; z-index: 10;
+}
+.img-caption {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 0.8rem; font-weight: bold; z-index: 5; pointer-events: none;
+}
+
+/* Thumbs */
+.gallery-thumbs {
+    display: flex; gap: 10px;
+    margin-top: 15px; overflow-x: auto; padding-bottom: 5px;
+    scrollbar-width: thin;
+}
+.thumb-item {
+    cursor: pointer; flex-shrink: 0;
+    opacity: 0.6; transition: 0.3s; position: relative;
+}
+.thumb-item:hover  { opacity: 1; }
+.thumb-item.active { opacity: 1; }
+.thumb-item img    { display: block; object-fit: cover; }
+
+/* ── Actions ────────────────────────────────────────────────── */
+
+.project-actions {
+    display: flex; gap: 20px; flex-wrap: wrap;
+}
+.project-btn {
+    text-decoration: none; display: inline-block;
+    padding: 12px 24px; text-transform: uppercase;
+    transition: all 0.3s ease; position: relative; cursor: pointer;
+    font-size: 0.9rem; text-align: center;
+}
+
+.project-btn::after {
+    content: '';
+    position: absolute; width: 0; height: 1px;
+    bottom: 5px; left: 50%;
+    background: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+.project-btn:hover::after { width: 60%; left: 20%; }
+
+/* ── Fullscreen modal ───────────────────────────────────────── */
+
+.fullscreen-modal {
+    position: fixed; inset: 0;
+    z-index: 99999;
+    display: flex; align-items: center; justify-content: center;
+}
+.fullscreen-modal.hidden { display: none; }
+.modal-content {
+    max-width: 95vw; max-height: 95vh;
+    display: flex; flex-direction: column;
+}
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 15px;
+}
+.modal-img-container {
+    position: relative; overflow: hidden;
+    display: flex; justify-content: center; align-items: center;
+}
+.modal-scanline {
+    position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+    opacity: 0; pointer-events: none; z-index: 2;
+}
+#modal-full-img { max-width: 100%; max-height: 80vh; display: block; }
+body.modal-open { overflow: hidden; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 800px) {
+    .project-body-layout { flex-direction: column; }
+    .project-visuals     { padding-top: 0; }
+    .data-grid           { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+    .data-grid           { grid-template-columns: 1fr 1fr; }
+    .project-actions     { flex-direction: column; }
+    .project-btn         { width: 100%; }
+}

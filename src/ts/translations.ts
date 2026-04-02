@@ -13,6 +13,7 @@ export type TranslationKey =
   | 'exp-title' | 'exp-sub' | 'exp-status'
   | 'exp-awaiting-title' | 'exp-awaiting-text'
   | 'portfolio-title' | 'access-code'
+  | 'project-id-label'
   | 'footer-text';
 
 export type TranslationMap = Record<TranslationKey, string>;
@@ -42,11 +43,13 @@ export const TRANSLATIONS: Record<Theme, TranslationMap> = {
     'bullet':                '> ',
     'exp-title':             '// SYSTEM_BOOT_LOGS',
     'exp-sub':               '> Initializing Career Protocol...',
-    'exp-status':            'User status: <span style="color:var(--color1)">READY_FOR_DEPLOYMENT</span>',
+    //'exp-status':            'User status: <span style="color:var(--color1)">READY_FOR_DEPLOYMENT</span>',
+    'exp-status':            'User status: <span style="color:var(--color1)">DEPLOYED</span>',
     'exp-awaiting-title':    '// AWAITING_FIRST_CONTRACT',
     'exp-awaiting-text':     "Implants : Overclocked. Soft : Dernier patch installé.<br>En recherche d'un Fixer pour valider le premier Gig.",
     'portfolio-title':       '// COMPILED_PROJECTS',
     'access-code':           '> ACCESS CODE',
+    'project-id-label':      'FILE_REF: 0x5944-10',
     'footer-text':           'END OF LINE_',
   },
   nier: {
@@ -78,6 +81,7 @@ export const TRANSLATIONS: Record<Theme, TranslationMap> = {
     'exp-awaiting-text':     "Ce corps a fini d'apprendre. Il est temps de changer de forme.<br>En quête d'une nouvelle porte à ouvrir pour débuter la prochaine existence.",
     'portfolio-title':       'Archives',
     'access-code':           '• Examine',
+    'project-id-label':      'ID: 59-44-10',
     'footer-text':           'End of Report',
   },
 } as const;

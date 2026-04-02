@@ -1,0 +1,277 @@
+/* ── Breadcrumb ─────────────────────────────────────────────── */
+
+html[data-theme="nier"] .sub-header-glitch {
+    font-family: 'Cinzel', serif;
+    color: var(--color3); text-align: center;
+}
+html[data-theme="nier"] .sub-header-glitch .crumb {
+    color: var(--color3); opacity: 0.7;
+}
+html[data-theme="nier"] .sub-header-glitch .active {
+    color: var(--color2); font-style: italic;
+}
+
+/* ── Panel ──────────────────────────────────────────────────── */
+
+html[data-theme="nier"] .project-detail-panel {
+    background: #e8e4d2;
+    padding: 40px;
+    border: 1px solid #b5b09c;
+    outline: 4px double #b5b09c;
+    outline-offset: -10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1), inset 0 0 100px rgba(168,162,140,0.2);
+    overflow: visible;
+}
+
+/* ── Banner ─────────────────────────────────────────────────── */
+
+html[data-theme="nier"] .project-banner { border-bottom: 2px solid var(--color2);}
+html[data-theme="nier"] .project-cover-img {
+    filter: sepia(0.3); opacity: 0.85;
+}
+html[data-theme="nier"] .project-overlay {
+    background: linear-gradient(to top, rgba(220,216,200,0.98), transparent);
+    display: flex; justify-content: space-between; align-items: flex-end;
+}
+html[data-theme="nier"] .project-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem; color: var(--color5); letter-spacing: 0.05em; margin: 0;
+}
+html[data-theme="nier"] .project-id {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--color2); font-size: 0.8rem; letter-spacing: 2px;
+}
+html[data-theme="nier"] .status-tag {
+    color: var(--color3); border-color: var(--color3);
+    background: transparent; font-family: 'Cinzel', serif;
+}
+html[data-theme="nier"] .status-tag.warning {
+    color: var(--color2); border-color: var(--color2);
+}
+
+html[data-theme="nier"] .angelic-watermark {
+    position: absolute; top: 20px; right: 20px;
+    font-family: 'Angelic', serif; font-size: 3rem;
+    color: var(--color5); opacity: 0.15;
+    pointer-events: none; z-index: 5;
+    writing-mode: vertical-rl;
+}
+
+html[data-theme="nier"] .scanner-bar { display: none; }
+
+/* ── Data grid ──────────────────────────────────────────────── */
+
+html[data-theme="nier"] .data-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    border-bottom: 2px solid var(--color1);
+    background: rgba(0,0,0,0.02); margin-bottom: 40px;
+}
+html[data-theme="nier"] .data-cell {
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding: 15px 20px;
+}
+html[data-theme="nier"] .data-cell .label {
+    font-family: 'Cinzel', serif;
+    color: var(--color2); margin-bottom: 4px; text-transform: uppercase;
+}
+html[data-theme="nier"] .data-cell .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700; font-size: 1.25rem; color: var(--color5);
+}
+
+/* ── Body layout  ─────────────────────────────────────────── */
+
+html[data-theme="nier"] .project-body-layout { flex-direction: column; }
+
+html[data-theme="nier"] .project-text-content {
+    border-right: none;
+    padding: 0;
+}
+html[data-theme="nier"] .project-visuals {
+    padding: 0;
+    background: transparent;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+
+html[data-theme="nier"] .section-header {
+    font-family: 'Cinzel', serif;
+    color: var(--color5);
+    border-bottom: 1px dashed var(--color3);
+
+    margin-top: 35px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    display: block;
+    width: 100%;
+}
+html[data-theme="nier"] .label-block {
+    font-family: 'Cinzel', serif;
+    color: var(--color2);
+}
+html[data-theme="nier"] .feature-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; color: var(--color1);
+}
+html[data-theme="nier"] .feature-list li::before {
+    content: '❖';
+    position: absolute; left: 0; top: 2px;
+    color: var(--color2); font-size: 0.9rem;
+}
+
+/* ── Tech chips ─────────────────────────────────────────────── */
+
+html[data-theme="nier"] .tech-stack-container {
+    border-bottom: 1px dashed var(--color3);
+}
+html[data-theme="nier"] .chip {
+    font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;
+    color: var(--color1); background: transparent;
+    padding: 6px 16px; border: 1px solid var(--color3);
+    transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+html[data-theme="nier"] .chip::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 0%; height: 100%;
+    background: var(--color4); z-index: -1; transition: width 0.4s ease;
+}
+html[data-theme="nier"] .chip:hover::before { width: 100%; }
+html[data-theme="nier"] .chip:hover { color: #e8e4d2; border-color: var(--color4); letter-spacing: 1px; }
+
+/* ── Gallery (paper/mail aesthetic) ────────────────────────── */
+
+html[data-theme="nier"] .gallery-title {
+    font-family: 'Cinzel', serif; font-size: 1.6rem;
+    border-bottom: 1px solid var(--color1); padding-bottom: 5px; margin-bottom: 20px;
+}
+html[data-theme="nier"] .gallery-viewport {
+    height: 450px;
+    background: #f7f5ec; border: 1px solid #a8a28c;
+    box-shadow: 5px 5px 0 #e0dcc5, 10px 10px 0 #d6d1ba, 15px 15px 20px rgba(0,0,0,0.1);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+html[data-theme="nier"] .gallery-viewport::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(to bottom, transparent, transparent 1px, rgba(0,0,0,0.03) 2px);
+    pointer-events: none; z-index: 2;
+}
+html[data-theme="nier"] .gallery-main-img {
+    max-width: 90%; max-height: 90%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+    filter: sepia(0.1);
+    z-index: 3;
+    position: relative;
+}
+html[data-theme="nier"] .gallery-main-img:hover {
+    transform: scale(1.02); filter: sepia(0);
+}
+
+html[data-theme="nier"] .noise-overlay    { display: none; }
+html[data-theme="nier"] .corner-bracket   { display: none; }
+html[data-theme="nier"] .viewport-overlay { display: none; }
+
+html[data-theme="nier"] .decoding-overlay { background: #f7f5ec; }
+html[data-theme="nier"] .gallery-viewport.loading-effect .decoding-overlay {
+    animation: paperFade 0.6s ease-in-out;
+}
+@keyframes paperFade {
+    0%   { opacity: 0; }
+    30%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+html[data-theme="nier"] .img-caption {
+    border: 2px solid var(--color2); color: var(--color2);
+    font-family: 'Share Tech Mono', monospace;
+    padding: 5px 10px;
+    transform: rotate(-5deg);
+    opacity: 0.7;
+    background: transparent;
+}
+
+/* Thumbs */
+html[data-theme="nier"] .gallery-thumbs {
+    gap: 15px; margin-top: 25px; padding-left: 10px;
+    padding-top: 10px;
+    overflow-y: visible;
+}
+html[data-theme="nier"] .thumb-item {
+    width: 90px; height: 90px;
+    position: relative;
+    overflow: visible;
+}
+html[data-theme="nier"] .thumb-item img {
+    width: 100%; height: 100%;
+    border: 4px solid #fff; box-shadow: 3px 3px 0 #ccc;
+    filter: grayscale(1); transition: 0.3s;
+    object-fit: cover;
+}
+html[data-theme="nier"] .thumb-item:hover { transform: translateY(-5px); }
+html[data-theme="nier"] .thumb-item:hover img { filter: grayscale(0); }
+html[data-theme="nier"] .thumb-item.active img {
+    filter: grayscale(0);
+    border-color: var(--color2);
+    transform: translateY(-5px);
+}
+
+/* ── Actions ────────────────────────────────────────────────── */
+
+html[data-theme="nier"] .project-actions {
+    margin-top: 60px; padding-top: 30px;
+    border-top: 1px solid var(--color3);
+    justify-content: flex-start;
+}
+html[data-theme="nier"] .project-btn {
+    font-family: 'Cinzel', serif; font-weight: 700;
+    letter-spacing: 0.05em;
+}
+html[data-theme="nier"] .project-btn.primary {
+    background: var(--color1); color: #e8e4d2;
+    border: 1px solid var(--color1);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+html[data-theme="nier"] .project-btn.primary:hover {
+    background: #504d47; transform: translateY(-2px);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.1);
+}
+html[data-theme="nier"] .project-btn.secondary {
+    background: transparent; color: var(--color1);
+    border: 1px solid var(--color1);
+    box-shadow: inset 0 0 0 2px #e8e4d2, inset 0 0 0 3px var(--color1);
+}
+html[data-theme="nier"] .project-btn.secondary:hover {
+    background: var(--color2); color: #fff;
+    border-color: var(--color2); box-shadow: none;
+}
+
+/* ── Modal ──────────────────────────────────────────────────── */
+
+html[data-theme="nier"] .fullscreen-modal {
+    background: rgba(61,59,54,0.95);
+}
+html[data-theme="nier"] .modal-content {
+    background: #e8e4d2; padding: 15px;
+    border: 1px solid #fff; box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+html[data-theme="nier"] .modal-header {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color3); padding-bottom: 5px;
+}
+html[data-theme="nier"] .modal-title {
+    font-family: 'Cinzel', serif; color: var(--color5);
+}
+html[data-theme="nier"] .modal-close-btn {
+    border: 1px solid var(--color1); background: transparent;
+    padding: 5px 20px; font-family: 'Cinzel', serif;
+    cursor: pointer; transition: 0.3s; color: var(--color1);
+}
+html[data-theme="nier"] .modal-close-btn:hover {
+    background: var(--color2); color: #fff; border-color: var(--color2);
+}
+
+html[data-theme="nier"] .modal-scanline { display: none; }
