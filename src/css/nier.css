@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap');
+
+@font-face {
+    font-family: 'Angelic';
+    src: url('/assets/fonts/AngelicRegular.ttf') format('truetype');
+    font-weight: normal; font-style: normal;
+    font-display: swap;
+}
+
+/* ── Variables ──────────────────────────────────────────────── */
+html[data-theme="nier"] {
+    --bg-color:    #dcd8c8;
+    --panel-bg:    #e8e4d2;
+    --color1:      #3d3b36;
+    --color2:      #8a1c1c;
+    --color3:      #59554b;
+    --color4:      #4a4a4a;
+    --color5:      #111;
+    --text-main:   #2b2b2b;
+    --border-color: #757060;
+}
+
+/* ── Body ───────────────────────────────────────────────────── */
+html[data-theme="nier"] body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    background-image:
+            radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.1) 100%),
+            repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.02) 2px);
+}
+
+html[data-theme="nier"] body::before,
+html[data-theme="nier"] body::after {
+    top: 0; height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    z-index: -1;
+}
+html[data-theme="nier"] body::before {
+    content: "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+    font-family: 'Angelic';
+    font-size: 1.5rem;
+    color: var(--color2);
+    opacity: 0.15;
+    left: 50px;
+    letter-spacing: 15px;
+    border-left: 1px solid rgba(138,28,28,0.1);
+    padding-left: 20px;
+}
+html[data-theme="nier"] body::after {
+    content: "FOR THE GLORY OF MANKIND";
+    font-family: 'Cinzel', serif;
+    font-weight: 900; font-size: 1rem;
+    color: var(--color1);
+    opacity: 0.2;
+    right: 50px;
+    letter-spacing: 10px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding-right: 20px;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+html[data-theme="nier"] h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--color5);
+    text-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-bottom: 2px solid var(--color5);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+}
+html[data-theme="nier"] h1::after {
+    content: '❖';
+    display: block; font-size: 1rem;
+    color: var(--color5); text-align: center; margin-top: 5px;
+}
+
+html[data-theme="nier"] h2 {
+    font-family: 'Cinzel', serif;
+    border-bottom: 1px double var(--color1);
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+html[data-theme="nier"] h2::after {
+    content: attr(data-angelic);
+    font-family: 'Angelic';
+    display: block;
+    font-size: 0.5em;
+    color: var(--color2);
+    opacity: 0.6;
+    margin-top: -5px; line-height: 1;
+    padding-bottom: 5px; letter-spacing: 3px;
+    text-transform: lowercase;
+}
+
+html[data-theme="nier"] .card h2 {
+    border-bottom: 1px dashed var(--color3);
+}
+
+html[data-theme="nier"] h3,
+html[data-theme="nier"] .highlight-text,
+html[data-theme="nier"] .job-header h3 {
+    color: var(--color5);
+    text-shadow: none;
+}
+html[data-theme="nier"] p.highlight-text {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+}
+
+/* ── Angelic helper class ───────────────────────────────────── */
+html[data-theme="nier"] .angelic-icon {
+    font-family: 'Angelic', serif;
+    font-size: 1.2em;
+    margin-right: 10px;
+    vertical-align: middle;
+    color: var(--color2);
+}
+
+/* ── Button ─────────────────────────────────────────────────── */
+html[data-theme="nier"] .theme-btn {
+    font-family: 'Cinzel', serif;
+    border: 2px solid #333;
+    color: #333;
+    background: transparent;
+    font-weight: bold;
+}
+html[data-theme="nier"] .theme-btn:hover {
+    background: #333; color: #fff;
+}
+
+/* ── Subtitle ───────────────────────────────────────────────── */
+html[data-theme="nier"] .subtitle {
+    display: flex; align-items: center; justify-content: center;
+    position: relative; left: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.3rem;
+    color: var(--color4);
+}
+html[data-theme="nier"] .typing-cursor::after {
+    width: 4px; height: 4px;
+    border-radius: 0;
+    background-color: var(--color2);
+    vertical-align: middle;
+    animation: softPulse 3s infinite ease-in-out;
+}
+@keyframes softPulse {
+    0%, 100% { opacity: 0.1; }
+    50%      { opacity: 0.6; }
+}
+
+/* ── Navigation ─────────────────────────────────────────────── */
+html[data-theme="nier"] .nav-link {
+    font-family: 'Cinzel', serif;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: #555; text-align: center;
+}
+html[data-theme="nier"] .nav-link::before {
+    font-family: 'Angelic';
+    position: absolute; left: 10px;
+    opacity: 0; color: var(--color2);
+    transition: all 0.3s ease; font-size: 1.2em;
+}
+html[data-theme="nier"] .nav-link:hover {
+    color: #000; letter-spacing: 2px;
+    background: rgba(0,0,0,0.05);
+    text-shadow: none; padding-left: 25px;
+}
+html[data-theme="nier"] .nav-link:hover::before { opacity: 1; left: 5px; }
+html[data-theme="nier"] .nav-link.active {
+    background: transparent; color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    box-shadow: none;
+}
+
+/* Angelic letter per nav item */
+html[data-theme="nier"] .nav-link:nth-child(1)::before { content: 'a'; }
+html[data-theme="nier"] .nav-link:nth-child(2)::before { content: 'b'; }
+html[data-theme="nier"] .nav-link:nth-child(3)::before { content: 'c'; }
+html[data-theme="nier"] .nav-link:nth-child(4)::before { content: 'd'; }
+
+/* ── Portrait ───────────────────────────────────────────────── */
+html[data-theme="nier"] .portrait-frame {
+    border: none; background: transparent;
+    display: flex; justify-content: center; align-items: center;
+    overflow: visible;
+}
+html[data-theme="nier"] .portrait-frame::before {
+    content: '';
+    position: absolute;
+    width: 120%; height: 120%;
+    border: 1px dashed #333; border-radius: 50%;
+    z-index: 0;
+    animation: magicSpin 20s linear infinite;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" stroke="black" fill="none" stroke-width="0.5"/><rect x="48" y="2" width="4" height="4" fill="black"/><rect x="48" y="94" width="4" height="4" fill="black"/><rect x="2" y="48" width="4" height="4" fill="black"/><rect x="94" y="48" width="4" height="4" fill="black"/></svg>');
+}
+html[data-theme="nier"] .portrait-frame::after {
+    box-shadow: none;
+}
+
+@keyframes magicSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+html[data-theme="nier"] .portrait-img {
+    width: 90%; height: 90%;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 1px #333;
+    z-index: 2;
+    filter: none;
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+html[data-theme="nier"] .card {
+    font-family: 'Cinzel', serif;
+    color: var(--color3);
+    border: 3px double #555;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 2px;
+}
+html[data-theme="nier"] .card::before,
+html[data-theme="nier"] .card::after {
+    position: absolute;
+    width: 10px; height: 10px;
+    border: 2px solid #222;
+    background: var(--color1);
+}
+html[data-theme="nier"] .card::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+html[data-theme="nier"] .card::after  { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+/* ── Skill tags ─────────────────────────────────────────────── */
+html[data-theme="nier"] .skill-tag {
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(to bottom, #e8e4d2, #dcd8c8);
+    border: 2px solid #555;
+    color: var(--color5);
+    padding: 6px 12px; margin: 6px;
+    font-size: 0.9rem; font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    outline: 1px solid var(--color2); outline-offset: -4px;
+    transition: all 0.2s ease;
+}
+html[data-theme="nier"] .skill-tag:hover {
+    background: #fff; color: var(--color2);
+    box-shadow: 0 0 10px var(--color2);
+    border-color: var(--color2);
+    transform: translateY(-2px);
+}
+html[data-theme="nier"] .skill-tag::before {
+    content: '';
+    position: absolute; top: 50%; left: -4px;
+    width: 4px; height: 4px;
+    background: var(--color2);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* ── Timeline ───────────────────────────────────────────────── */
+html[data-theme="nier"] .timeline-item {
+    border-left: none;
+    margin-left: 20px; padding-left: 40px; padding-bottom: 40px;
+}
+html[data-theme="nier"] .timeline-item h3 { color: var(--color5); }
+html[data-theme="nier"] .timeline-item::before {
+    content: '❖';
+    width: 10px; height: 10px;
+    left: -6px; top: 0;
+    font-size: 2.3rem; color: var(--color2);
+    background: var(--panel-bg); z-index: 2; line-height: 0.8;
+}
+html[data-theme="nier"] .timeline-item::after {
+    content: "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+    font-family: 'Angelic';
+    font-size: 14px; color: var(--color2); opacity: 0.4;
+    position: absolute; top: 25px; left: -5px; bottom: 0; width: 20px;
+    word-break: break-all; line-height: 1.2;
+    overflow: hidden; letter-spacing: 2px; text-align: center;
+}
+html[data-theme="nier"] .timeline-desc { color: var(--color1); }
+
+/* ── Jobs ───────────────────────────────────────────────────── */
+html[data-theme="nier"] .job-date    { color: var(--color2); border-bottom: 1px solid var(--color2); }
+html[data-theme="nier"] .job-details { color: var(--color4); }
+
+html[data-theme="nier"] footer { color: #444; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    html[data-theme="nier"] .portrait-frame { margin: 20px auto 40px auto; }
+    html[data-theme="nier"] .nav-link {
+        border-left: none;
+        border-bottom: 1px solid #aaa;
+    }
+}
