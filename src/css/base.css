@@ -230,6 +230,8 @@ html[data-theme="nier"]      .portrait-frame--cyberpunk { display: none !importa
     padding: 0;
     overflow: hidden;
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 .project-card img {
     width: 100%;
@@ -245,6 +247,7 @@ html[data-theme="nier"]      .portrait-frame--cyberpunk { display: none !importa
     display: flex;
     flex-direction: column;
     gap: 12px;
+    flex-grow: 1;
 }
 .project-card h3 { margin-bottom: 5px}
 .project-card__body h3  { color: var(--color1); font-size: 1rem; }
@@ -252,6 +255,7 @@ html[data-theme="nier"]      .portrait-frame--cyberpunk { display: none !importa
 .project-card__tags     { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .project-card__link     { color: var(--color3); text-decoration: none; font-size: 0.9em; margin-top: auto; padding-top: 12px; }
 .project-card__link:hover { text-decoration: underline; }
+.project-grid--portfolio {grid-template-columns: 1fr 1fr;gap: 20px;}
 .project-tag            { opacity: 0.6; font-size: 0.85em; }
 
 /* Awaiting card — experience page */
@@ -323,6 +327,7 @@ footer {
     .contact-info { width: 100%; max-width: 350px; margin: 0 auto; }
     main          { width: 100%; }
     .project-grid { grid-template-columns: 1fr; }
+    .project-grid--portfolio { grid-template-columns: 1fr; }
     .timeline-item { margin-left: 10px; }
     .job-header   { flex-direction: column; gap: 5px; }
 }

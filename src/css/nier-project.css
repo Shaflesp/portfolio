@@ -275,3 +275,26 @@ html[data-theme="nier"] .modal-close-btn:hover {
 }
 
 html[data-theme="nier"] .modal-scanline { display: none; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+html[data-theme="nier"] .project-detail-panel {
+    padding: 20px;
+    /* Remove stacked-paper offset so shadow doesn't overflow on mobile */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1), inset 0 0 60px rgba(168,162,140,0.15);
+    margin: 10px auto;
+}
+html[data-theme="nier"] .gallery-viewport {
+    height: 320px;
+    /* Keep shadow but remove the offset layers that overflow */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+}
+
+@media (max-width: 500px) {
+    html[data-theme="nier"] .project-detail-panel { padding: 15px; }
+    html[data-theme="nier"] .gallery-viewport     { height: 240px; }
+    html[data-theme="nier"] .gallery-thumbs       { gap: 8px; }
+    html[data-theme="nier"] .thumb-item           { width: 60px; height: 60px; }
+}

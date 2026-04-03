@@ -300,3 +300,27 @@ html[data-theme="cyberpunk"] .modal-scanline {
     90%  { opacity: 1; }
     100% { top: 100%; opacity: 0; }
 }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+    /* clip-path on nav links was already removed in main cyberpunk responsive.
+       Remove it on project panel too so it doesn't clip content on narrow screens. */
+    html[data-theme="cyberpunk"] .project-detail-panel {
+        box-shadow: none;
+    }
+    html[data-theme="cyberpunk"] .project-text-content {
+        border-right: none;
+        border-bottom: 1px dashed #333;
+    }
+    html[data-theme="cyberpunk"] .project-actions {
+        padding: 15px;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 500px) {
+    html[data-theme="cyberpunk"] .thumb-item {
+        min-width: 70px; height: 45px;
+    }
+}
