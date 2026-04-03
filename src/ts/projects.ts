@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
             { src: '/images/projects/wip.png', id: '001', caption: 'REC_001', alt: 'Maze Game' },
         ],
         actions: [
-            { label: 'SOURCE_CODE', href: '#', variant: 'primary', external: false },
+            { label: 'SOURCE_CODE', href: 'https://gitlab.univ-lille.fr/sae302/2025/G1_SAE3.3', variant: 'primary', external: true },
         ],
     },
 
@@ -124,7 +124,7 @@ export const PROJECTS: Project[] = [
             { src: '/images/projects/wip.png', id: '001', caption: 'REC_001', alt: 'Rage Party' },
         ],
         actions: [
-            { label: 'SOURCE_CODE', href: '#', variant: 'primary', external: false },
+            { label: 'SOURCE_CODE', href: 'https://gitlab.univ-lille.fr/remy.martin3.etu/codegamejam2026', variant: 'primary', external: true },
         ],
     },
 
@@ -185,7 +185,7 @@ export const PROJECTS: Project[] = [
             { label: 'ROLE',   value: 'Full Stack'   },
             { label: 'LANG',   value: 'Node.js'       },
         ],
-        techChips: ['NODE.JS', 'SOCKET.IO', 'JS'],
+        techChips: ['NODE.JS', 'SOCKET.IO', 'TS', 'HTML'],
         sections: [
             {
                 title: 'MISSION BRIEF',
@@ -199,7 +199,7 @@ export const PROJECTS: Project[] = [
                 listItems: [
                     'Multijoueur temps réel via Socket.io.',
                     'Logique de jeu et collision gérées côté serveur Node.js.',
-                    'Mécanique de shoot\'em up avec progression de vagues.',
+                    'Mécanique de shoot\'em up avec progression de vagues et boss.',
                     'Direction Artistique et Créative entièrement faite main',
                 ],
             },
@@ -208,7 +208,7 @@ export const PROJECTS: Project[] = [
             { src: '/images/projects/wip.png', id: '001', caption: 'REC_001', alt: 'Lost in the Woods' },
         ],
         actions: [
-            { label: 'SOURCE_CODE', href: '#', variant: 'primary', external: false },
+            { label: 'SOURCE_CODE', href: 'https://gitlab.univ-lille.fr/jsae/2025-2026/projets/groupe-i/equipe-5/archoot', variant: 'primary', external: true },
         ],
     },
 
@@ -227,7 +227,7 @@ export const PROJECTS: Project[] = [
             { label: 'ROLE',   value: 'Full Stack'   },
             { label: 'LANG',   value: 'Java / JS'    },
         ],
-        techChips: ['HTML', 'CSS', 'JS', 'JAVA', 'JAVA EE', 'SQL'],
+        techChips: ['HTML', 'JS', 'JAVA', 'JAVA EE', 'SQL'],
         sections: [
             {
                 title: 'MISSION BRIEF',
@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
         ],
         actions: [
             { label: 'SOURCE_CODE',        href: 'https://github.com/Shaflesp/webPlayer',                        variant: 'primary',   external: true },
-            { label: 'RUN_DIAGNOSTICS',    href: '#',                                                            variant: 'secondary', external: false },
+            //{ label: 'RUN_DIAGNOSTICS',    href: '#',                                                            variant: 'secondary', external: false },
         ],
     },
 
