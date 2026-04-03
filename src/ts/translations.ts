@@ -48,7 +48,7 @@ export const TRANSLATIONS: Record<Theme, TranslationMap> = {
     'exp-awaiting-title':    '// AWAITING_FIRST_CONTRACT',
     'exp-awaiting-text':     "Implants : Overclocked. Soft : Dernier patch installé.<br>En recherche d'un Fixer pour valider le premier Gig.",
     'portfolio-title':       '// COMPILED_PROJECTS',
-    'access-code':           '> ACCESS CODE',
+    'access-code':           '> ACCESS PROJECT',
     'project-id-label':      'FILE_REF: 0x5944-10',
     'footer-text':           'END OF LINE_',
   },
