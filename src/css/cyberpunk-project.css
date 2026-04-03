@@ -304,8 +304,7 @@ html[data-theme="cyberpunk"] .modal-scanline {
 /* ── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
-    /* clip-path on nav links was already removed in main cyberpunk responsive.
-       Remove it on project panel too so it doesn't clip content on narrow screens. */
+
     html[data-theme="cyberpunk"] .project-detail-panel {
         box-shadow: none;
     }
