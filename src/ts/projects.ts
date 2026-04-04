@@ -209,6 +209,7 @@ export const PROJECTS: Project[] = [
         ],
         actions: [
             { label: 'SOURCE_CODE', href: 'https://gitlab.univ-lille.fr/jsae/2025-2026/projets/groupe-i/equipe-5/archoot', variant: 'primary', external: true },
+            { label: 'RUN_DIAGNOSTICS',    href: '/projects/archoot-game/index.html', variant: 'secondary', external: false },
         ],
     },
 

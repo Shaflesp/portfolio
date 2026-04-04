@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Équipe 5 - Archoot</title>
+        <link rel="icon" href="/projects/archoot-game/images/logo.png" type="image/png">
+
+        <link rel="stylesheet" href="/projects/archoot-game/css/general.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/main.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/home.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/canvas.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/credits.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/leaderboard.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/popup.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/rooms.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/create-room.css">
+        <link rel="stylesheet" href="/projects/archoot-game/css/splash.css">
+
+        
+      <script type="module" crossorigin src="/projects/archoot-game/assets/main-Bom68qGX.js"></script>
+    </head>
+
+    <body>
+
+        <div id="splash-screen" class="screen">
+            <p class="splash-text"></p>
+        </div>
+
+        <div id="home-screen" class="screen">
+            <div class="username-field">
+                <img class="noselect" src="./images/ui/avatarUndef.png" draggable="false">
+                <input type="text" id="pseudo" name="pseudo" maxlength="150" minlength="2" placeholder="Votre pseudo">
+            </div>
+
+            <a class="credits-button home-button noselect"><img src="./images/ui/credits.png" draggable="false"></a>
+            <div class="logo-container">
+                <h1 class="logo-text noselect">Archoot</h1>
+                <img class="logo-home noselect" src="./images/logo.png" draggable="false">
+            </div>
+            <img class="character noselect" src="./images/sprites/archoot_man.gif" draggable="false">
+            
+            <div class="bottom-menu">
+                <a class="play-button-solo home-button noselect"><img src="./images/ui/boutonSolo.png" draggable="false"></a>
+                <a class="play-button-multi home-button noselect"><img src="./images/ui/boutonMulti.png" draggable="false"></a>
+                <a class="leaderboard-button home-button noselect"><img src="./images/leaderboard/leaderboard.png" draggable="false"></a> 
+            </div>
+
+            <aside class="popup username">
+                <article class="popupContent username">
+                    <button class="closeButton username">X</button>
+                    <h1>Attention!</h1>
+                    <p>Votre pseudonyme est invalide</p>
+                </article>
+            </aside>
+            <aside class="popup taken">
+                <article class="popupContent taken">
+                    <button class="closeButton taken">X</button>
+                    <h1>Attention!</h1>
+                    <p>Ce pseudonyme est déjà pris!</p>
+                </article>
+            </aside>
+        </div>
+
+        <div id="room-select-screen" class="screen">
+            <a class="back-button home-button noselect"><img src="./images/ui/retour.png" draggable="false"></a>
+            <div class="rooms-header">
+                <a class="room-create-button noselect"><img src="./images/ui/boutonCreerSalle.png" draggable="false"></a>
+
+                <div class="search-container">
+                    <label for="search-room">Recherche: </label>
+                    <input name="search-room" id="search-room" class="search-room">
+                </div>
+            </div>
+
+            <div class="room-list-scroll">
+                <table class="room-list">
+                    <thead>
+                        <tr>
+                            <th>Nom de salle</th>
+                            <th>Capacité</th>
+                            <th>Rejoindre</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="create-room-screen" class="screen">
+            <a class="back-button home-button noselect"><img src="./images/ui/retour.png" draggable="false"></a>
+
+            <form class="create-room-form">
+                <label for="name">Nom de la salle</label>
+                <input type="text" name="name" id="name" class="create-input" maxlength="16">
+                <p class="name-warning warning"></p>
+
+                <label class="pvp-label">
+                    <input type="checkbox" name="pvp" class="pvp-checkbox">
+                    Activer le PvP
+                </label>
+
+                <label for="player-count">Nombre de joueurs</label>
+                <input type="number" id="player-count" name="player-count" class="create-input" min="2" max="8" value="2">
+                <p class="player-count-warning warning"></p>
+
+                <input type="submit" name="submit-room" value="Créer">
+                <p class="submit-warning warning"></p>
+            </form>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <canvas class="gameCanvas" width="1680" height="800"></canvas>
+
+            <button id="start-game-btn">Démarrer la partie</button>
+            <div id="game-announcement"></div>
+
+            <div class="esc-popup popup">
+                <div class="popupContent">
+                    <h1>Menu</h1>
+                    <button class="resume-button">Reprendre</button>
+                    <button class="quit-button">Quitter la partie</button>
+                </div>
+            </div>
+
+            <div class="death-popup popup">
+                <div class="popupContent">
+                    <h1>Vous êtes mort !</h1>
+                    <div class="stat-party">
+                        <p id="death-stats"></p>
+                    </div>
+                    <p>Que souhaitez-vous faire ?</p>
+                    <div class="death-buttons">
+                        <button class="spectate-button death-menu-button">
+                            <img src="/projects/archoot-game/images/ui/boutonSpectateur.png" alt="Replay">
+                        </button>
+                        <button class="replay-button death-menu-button" style="display: inline-block">
+                            <img src="/projects/archoot-game/images/ui/replay.png" alt="Replay">
+                        </button>
+                        <button class="leave-button death-menu-button">
+                            <img src="/projects/archoot-game/images/ui/retour.png" alt="Quit">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="leaderboard-screen" class="screen">
+            <h1>Leaderboard</h1>
+            <a class="back-button home-button noselect"><img src="./images/ui/retour.png" draggable="false"></a>  
+        
+            <div class="podium">
+                <div class="place second">
+                    <p class="player-name">---</p>
+                    <p class="player-score"></p>
+                    <p class ="player-date"></p>
+                </div>
+                <div class="place first">
+                    <p class="player-name">---</p>
+                    <p class="player-score"></p>
+                    <p class ="player-date"></p>
+                </div>
+                <div class="place third">
+                    <p class="player-name">---</p>
+                    <p class="player-score"></p>
+                    <p class ="player-date"></p>
+                </div>
+            </div>
+        
+            <div class="last">
+                </div>
+        </div>
+
+        <div id="credits-screen" class="screen">
+
+            <img class="logo-credits noselect" src="./images/logo.png" draggable="false">
+
+            <img class="parchemin noselect" src="./images/credits/parchemin.png" draggable="false">
+            
+            <div class="credits-content">
+                <h1>Crédits</h1>
+                <div class="liste-personnes">
+                    <div class="personne">
+                        <h2>Liam Lecnik</h2>
+                        <p>Groupe I</p>
+                        <p>wiyu</p>
+                        <p>OMORI</p>
+                        <p>27%</p>
+                    </div>
+                    <div class="personne">
+                        <h2>Maxence Mangin</h2>
+                        <p>Groupe I</p>
+                        <p>Maxou </p>
+                        <p>Minecraft</p>
+                        <p>22%</p>
+                    </div>
+                    <div class="personne">
+                        <h2>Remy Martin</h2>
+                        <p>Groupe I</p>
+                        <p>Shaflesp</p>
+                        <p>NieR Replikant</p>
+                        <p>28%</p>
+                    </div>
+                    <div class="personne">
+                        <h2>Loïse Vigneron</h2>
+                        <p>Groupe I</p>
+                        <p>Oli (aka LaVielle)</p>
+                        <p>The Last Of Us Part II</p>
+                        <p>23%</p>
+                    </div>
+                    <div class="personne">
+                        <h2>John Archoot</h2>
+                        <p>100%</p>
+                    </div> 
+                </div>
+            </div>
+
+            <a class="back-button home-button noselect"><img src="./images/ui/retour.png" draggable="false"></a>  
+        </div>
+    </body>
+</html>
